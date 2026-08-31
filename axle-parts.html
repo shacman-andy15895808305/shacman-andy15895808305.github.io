@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Axle Parts - SHACMAN</title>
+<link rel="icon" href="https://ecdn6.globalso.com/upload/m/image_other/2026-07/layer-1-30.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--theme:#0067AE;--sec-theme:#000;--body-color:#313131;--body-bg:#fff;--h-font-size:55px;--nb-h-font-size:40px;--pad-h-font-size:35px;--mob-h-font-size:30px}
+body{font-family:'Montserrat',Arial,sans-serif;color:var(--body-color);background:var(--body-bg);overflow-x:hidden;font-size:16px}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+.layout{max-width:1400px;margin:0 auto;padding:0 20px}
+
+/* ===== HEADER ===== */
+header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+.header-top{background:#f5f6f7;border-bottom:1px solid #eee}
+.header-top .layout{display:flex;justify-content:space-between;align-items:center;padding:6px 20px;font-size:13px}
+.header-top .tel{display:flex;align-items:center;gap:8px}
+.header-top .tel i{color:var(--theme)}
+.header-top .top-right{display:flex;align-items:center;gap:15px}
+.header-top .top-right a{color:var(--body-color);font-size:13px;transition:color .3s}
+.header-top .top-right a:hover{color:var(--theme)}
+.header-top .top-right .social{display:flex;gap:10px}
+.header-top .top-right .social a{color:#666}
+.inquiry-btn{background:var(--theme);color:#fff!important;padding:6px 22px;border-radius:20px;font-weight:600;transition:opacity .3s}
+.inquiry-btn:hover{opacity:.85}
+.header-main .layout{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{width:41px;height:41px}
+.logo-text{font-size:26px;font-weight:800;color:var(--sec-theme);letter-spacing:1px}
+.logo-text span{color:var(--theme)}
+.nav{display:flex;align-items:center;gap:6px}
+.nav>li{position:relative}
+.nav>li>a{display:block;padding:28px 16px;font-size:15px;font-weight:600;color:var(--body-color);text-transform:capitalize;transition:color .3s}
+.nav>li>a:hover,.nav>li.active>a{color:var(--theme)}
+.dropdown{position:absolute;top:100%;left:0;min-width:230px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.12);opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s;z-index:100;border-top:3px solid var(--theme)}
+.nav>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown>li{position:relative}
+.dropdown>li>a{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;font-size:14px;color:var(--body-color);border-bottom:1px solid #f0f0f0;transition:all .3s}
+.dropdown>li>a:hover{color:var(--theme);background:#f8fafc;padding-left:26px}
+.dropdown-sub{position:absolute;left:100%;top:0;min-width:200px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.12);opacity:0;visibility:hidden;transition:all .3s;border-top:3px solid var(--theme)}
+.dropdown>li:hover .dropdown-sub{opacity:1;visibility:visible}
+.dropdown-sub a{display:block;padding:10px 20px;font-size:14px;color:var(--body-color);border-bottom:1px solid #f0f0f0;transition:all .3s}
+.dropdown-sub a:hover{color:var(--theme);background:#f8fafc}
+.mobile-toggle{display:none;font-size:26px;cursor:pointer;color:var(--sec-theme)}
+
+/* ===== HERO ===== */
+.hero{position:relative;height:100vh;min-height:640px;overflow:hidden}
+.hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.2s ease}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover}
+.hero-slide::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.15) 60%,rgba(0,0,0,.3) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 60px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.hero-tag{display:inline-block;background:var(--theme);color:#fff;padding:7px 22px;border-radius:30px;font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:22px;text-transform:uppercase}
+.hero-content h2{color:#fff;font-size:48px;font-weight:800;line-height:1.25;margin-bottom:20px;text-shadow:0 2px 12px rgba(0,0,0,.4);max-width:800px;text-transform:capitalize}
+.hero-content p{color:#f0f4f8;font-size:17px;line-height:1.8;max-width:620px;margin-bottom:30px}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;background:var(--theme);color:#fff;padding:14px 34px;border-radius:30px;font-size:14px;font-weight:700;transition:all .3s}
+.hero-btn:hover{background:#00518c;transform:translateY(-2px)}
+.hero-arrows{position:absolute;bottom:40px;right:60px;z-index:3;display:flex;gap:12px}
+.hero-arrow{width:50px;height:50px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:all .3s;background:rgba(0,0,0,.2)}
+.hero-arrow:hover{background:var(--theme);border-color:var(--theme)}
+.slide-down{position:absolute;bottom:50px;left:60px;z-index:3;color:#fff;font-size:13px;display:flex;align-items:center;gap:10px;cursor:pointer;letter-spacing:1px}
+.slide-down .line{width:40px;height:1px;background:rgba(255,255,255,.7)}
+.slide-down i{animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ===== SECTION TITLE ===== */
+section{padding:90px 0}
+.section-title{text-align:center;margin-bottom:55px}
+.section-title h2{font-size:var(--h-font-size);font-weight:800;color:var(--sec-theme);text-transform:capitalize;line-height:1.2}
+.section-title h2 .small{color:var(--theme);text-transform:uppercase}
+.section-title h2 .big{text-transform:uppercase}
+.section-title .underline{width:80px;height:3px;background:var(--theme);margin:18px auto 0;border-radius:2px}
+.section-title p{font-size:15px;color:#666;max-width:750px;margin:18px auto 0;line-height:1.8}
+
+/* ===== PRODUCT SECTION ===== */
+.product-section{overflow:hidden}
+.product-section.p2{background:#f6f8fa}
+.product-wrap{padding:20px 0 40px}
+.outer-swiper-wrap{display:flex;align-items:center;gap:0}
+.main-slider{width:67%;position:relative}
+.product-item{position:relative;border-radius:0;overflow:hidden}
+.product-item img{width:100%;height:520px;object-fit:cover;transition:opacity .4s}
+.product-item .item-info{position:absolute;left:40px;bottom:40px;z-index:2;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);padding:18px 30px;color:#fff;border-left:4px solid var(--theme)}
+.product-item .item-title{font-size:34px;font-weight:800;letter-spacing:1px}
+.product-item .bar-info{font-size:13px;color:#ccd;margin-top:5px;letter-spacing:1.5px;text-transform:uppercase}
+.thumbs-slider{width:33%;display:flex;flex-direction:column;gap:14px;padding:0 0 0 30px}
+.thumbs-item{display:flex;align-items:center;gap:18px;cursor:pointer;padding:12px;border:1px solid #e5e7eb;transition:all .3s;background:#fff}
+.thumbs-item:hover{border-color:var(--theme)}
+.thumbs-item.active{border-color:var(--theme);box-shadow:0 4px 15px rgba(0,103,174,.15)}
+.thumbs-item img{width:110px;height:70px;object-fit:cover;flex-shrink:0}
+.thumbs-item .t-name{font-size:16px;font-weight:700;color:var(--body-color)}
+.thumbs-item .t-desc{font-size:12px;color:#999;margin-top:3px}
+/* reverse layout for SAGMOTO */
+.product-section.p2 .outer-swiper-wrap{flex-direction:row-reverse}
+.product-section.p2 .thumbs-slider{padding:0 30px 0 0}
+.product-section.p2 .product-item .item-info{left:auto;right:40px;border-left:0;border-right:4px solid var(--theme)}
+
+/* ===== GALLERY ===== */
+.gallery-section{background:#f6f8fa;overflow:hidden}
+.gallery-section .section-title{margin-bottom:40px}
+.gallery-marquee{position:relative;width:100%;overflow:hidden;padding:10px 0}
+.gallery-track{display:flex;gap:16px;width:max-content;animation:galleryScroll 45s linear infinite}
+.gallery-track:hover{animation-play-state:paused}
+.gallery-item{position:relative;overflow:hidden;cursor:pointer;flex:0 0 auto;width:320px;height:240px;border-radius:6px;box-shadow:0 4px 15px rgba(0,0,0,.1)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6));opacity:0;transition:opacity .4s}
+.gallery-item:hover::after{opacity:1}
+.gallery-item h4{position:absolute;left:18px;bottom:14px;z-index:2;color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;opacity:0;transform:translateY(10px);transition:all .4s;text-transform:uppercase}
+.gallery-item:hover h4{opacity:1;transform:translateY(0)}
+@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== ADVANTAGE ===== */
+.advantage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.advantage-card{text-align:center;padding:45px 35px;border:1px solid #e8eaed;transition:all .4s;background:#fff}
+.advantage-card:hover{border-color:var(--theme);box-shadow:0 15px 40px rgba(0,103,174,.12);transform:translateY(-5px)}
+.adv-icon{width:90px;height:90px;margin:0 auto 25px;border:2px solid var(--theme);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:38px;color:var(--theme);transition:all .4s}
+.advantage-card:hover .adv-icon{background:var(--theme);color:#fff}
+.advantage-card h3{font-size:22px;font-weight:800;color:var(--sec-theme);margin-bottom:15px;text-transform:uppercase;letter-spacing:1px}
+.advantage-card p{color:#777;font-size:14px;line-height:1.8}
+
+/* ===== CONTACT US ===== */
+.contact-section{background:#f6f8fa;padding:80px 0 90px}
+.contact-section .section-title{margin-bottom:50px}
+.contact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+@media(max-width:1024px){.contact-cards{grid-template-columns:repeat(2,1fr)}}
+.contact-card{background:#fff;border-radius:12px;padding:45px 30px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:all .4s}
+.contact-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,.12)}
+.contact-icon{width:80px;height:80px;background:var(--theme);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:#fff;font-size:28px}
+.contact-card h3{font-size:20px;font-weight:700;color:var(--sec-theme);margin-bottom:16px}
+.contact-card p{font-size:15px;line-height:1.8;color:var(--body-color)}
+.contact-card p a{color:var(--theme);text-decoration:none}
+.contact-card p a:hover{text-decoration:underline}
+@media(max-width:760px){.contact-cards{grid-template-columns:1fr}}
+
+/* ===== NEWS ===== */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.news-card{background:#fff;overflow:hidden;transition:all .4s;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.news-card:hover{box-shadow:0 15px 35px rgba(0,0,0,.12);transform:translateY(-6px)}
+.news-img{height:230px;overflow:hidden;position:relative}
+.news-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.news-card:hover .news-img img{transform:scale(1.06)}
+.news-date{position:absolute;top:16px;left:16px;background:var(--theme);color:#fff;padding:8px 16px;font-size:12px;font-weight:700;border-radius:3px}
+.news-body{padding:25px}
+.news-body h3{font-size:17px;font-weight:700;color:var(--sec-theme);line-height:1.5;margin-bottom:12px;transition:color .3s}
+.news-body h3:hover{color:var(--theme)}
+.news-body p{font-size:14px;color:#777;line-height:1.7;margin-bottom:15px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.read-more{font-size:13px;font-weight:700;color:var(--theme);text-transform:uppercase;letter-spacing:1px}
+.read-more i{transition:transform .3s}
+.read-more:hover i{transform:translateX(5px)}
+
+/* ===== FOOTER ===== */
+footer{background:#e9ebeb}
+.foot-items{display:flex;flex-wrap:wrap;padding:70px 0 50px;border-bottom:1px solid #c9caca}
+.foot-item{width:17.5%;padding-left:40px;border-right:1px solid #c9caca}
+.foot-item.foot-contact{flex:1;padding-right:30px;border-right:0}
+.foot-title{font-size:20px;font-weight:700;color:var(--sec-theme);margin-bottom:22px;line-height:1}
+.foot-item ul li{list-style:none;font-size:16px;line-height:2.125;color:var(--body-color)}
+.foot-item ul li a{transition:color .3s}
+.foot-item ul li a:hover{color:var(--theme)}
+.foot-social{display:flex;gap:10px;margin-top:15px}
+.foot-social a{width:38px;height:38px;background:#d5d8da;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--body-color);transition:all .3s}
+.foot-social a:hover{background:var(--theme);color:#fff}
+.foot-contact p{font-size:15px;line-height:1.8;color:var(--body-color);display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+.foot-contact p i{color:var(--theme);margin-top:4px;min-width:16px}
+.foot-contact p strong{display:block;color:var(--sec-theme);font-size:14px;letter-spacing:1px;margin-bottom:3px}
+.foot-title a{color:inherit;transition:color .3s}
+.foot-title a:hover{color:var(--theme)}
+.foot-bottom{background:#eff0f0;padding:30px 0 24px}
+.foot-bottom .layout{display:flex;justify-content:center;align-items:center;flex-direction:column;gap:8px}
+.foot-bottom .copyright{font-size:15px;color:var(--body-color)}
+.foot-bottom-links{display:flex;gap:20px}
+.foot-bottom-links a{font-size:14px;color:var(--body-color);transition:color .3s}
+.foot-bottom-links a:hover{color:var(--theme)}
+
+/* ===== FLOAT ===== */
+.float-contact{position:fixed;right:16px;bottom:90px;z-index:999;display:flex;flex-direction:column;gap:8px}
+.float-item{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.18);transition:transform .3s;position:relative}
+.float-item:hover{transform:scale(1.08)}
+.float-item .tip{position:absolute;right:56px;top:50%;transform:translateY(-50%);background:#313131;color:#fff;font-size:12px;padding:6px 12px;border-radius:4px;white-space:nowrap;opacity:0;visibility:hidden;transition:all .3s}
+.float-item:hover .tip{opacity:1;visibility:visible}
+.float-email{background:var(--theme)}
+.float-whatsapp{background:#25d366}
+.float-call{background:#f39c12}
+.float-top{position:fixed;right:16px;bottom:34px;z-index:999;background:#313131;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.18);transition:all .3s;opacity:0;visibility:hidden}
+.float-top.visible{opacity:1;visibility:visible}
+.float-top:hover{background:var(--theme)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1366px){.layout{max-width:1200px}.product-item img{height:460px}}
+@media(max-width:1024px){
+:root{--h-font-size:var(--nb-h-font-size)}
+.nav{position:fixed;top:0;left:-100%;width:80%;max-width:360px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:80px 30px 30px;transition:left .4s;z-index:1200;box-shadow:0 0 30px rgba(0,0,0,.15);overflow-y:auto}
+.nav.active{left:0}
+.nav>li{width:100%}
+.nav>li>a{padding:14px 0;border-bottom:1px solid #eee;width:100%}
+.dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;display:none;border-top:0}
+.nav>li.active>.dropdown{display:block}
+.dropdown-sub{position:static;opacity:1;visibility:visible;box-shadow:none;display:none;border-top:0;padding-left:15px}
+.dropdown>li.active .dropdown-sub{display:block}
+.mobile-toggle{display:block}
+.mobile-close{position:absolute;top:20px;right:20px;font-size:24px;cursor:pointer}
+.hero-content h2{font-size:36px}
+.hero-content{padding:0 40px}
+.hero-arrows{right:40px}
+.slide-down{left:40px}
+.main-slider,.thumbs-slider{width:100%}
+.thumbs-slider{flex-direction:row;flex-wrap:wrap;padding:20px 0 0}
+.thumbs-item{width:calc(33.33% - 10px)}
+.product-section.p2 .thumbs-slider{padding:20px 0 0}
+.product-section.p2 .outer-swiper-wrap{flex-direction:column}
+.outer-swiper-wrap{flex-direction:column}
+.gallery-item{width:260px;height:195px}
+.advantage-grid{grid-template-columns:1fr 1fr}
+.news-grid{grid-template-columns:1fr 1fr}
+.foot-item{width:30%;margin-bottom:30px}
+.foot-item.foot-contact{width:40%;flex:none}
+}
+@media(max-width:760px){
+:root{--h-font-size:var(--pad-h-font-size)}
+.hero-content h2{font-size:28px}
+.hero-content p{font-size:15px}
+.hero-arrows{display:none}
+.slide-down{left:20px;bottom:30px}
+.product-item img{height:300px}
+.product-item .item-info{left:15px;bottom:15px;padding:12px 18px}
+.product-item .item-title{font-size:22px}
+.thumbs-item{width:calc(50% - 8px)}
+.gallery-item{width:220px;height:165px}
+.advantage-grid{grid-template-columns:1fr}
+.news-grid{grid-template-columns:1fr}
+.form-row{grid-template-columns:1fr}
+.foot-item{width:50%}
+.foot-item.foot-contact{width:100%;padding-left:40px}
+.section-title h2{font-size:30px}
+.foot-items{padding:50px 0 30px}
+.header-top .top-right .social{display:none}
+}
+@media(max-width:480px){
+:root{--h-font-size:var(--mob-h-font-size)}
+.thumbs-item{width:100%}
+.foot-item{width:100%;border-right:0;border-bottom:1px solid #c9caca;padding-left:20px;margin-bottom:0;padding-bottom:20px}
+.foot-item.foot-contact{border-bottom:0}
+.hero-content{padding:0 20px}
+}
+
+/* ===== PAGE BANNER ===== */
+.page-banner{position:relative;background:linear-gradient(135deg,#0a1f3d 0%,#0d2749 100%);padding:110px 0 60px;text-align:center;color:#fff;overflow:hidden}
+.page-banner .layout{position:relative;z-index:1}
+.page-banner .banner-tag{display:inline-block;background:rgba(255,255,255,.06);color:#ffd200;padding:5px 20px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;border:1px solid rgba(255,255,255,.22)}
+.page-banner h1{font-size:48px;margin:0 0 14px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.page-banner p{max-width:760px;margin:0 auto;color:rgba(255,255,255,.82);font-size:15px;line-height:1.75}
+.page-banner p strong{display:block;color:#fff;font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:.5px}
+.page-banner p strong:empty{display:none}
+.parts-section{padding:60px 0 80px;background:#f6f8fa}
+.parts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.part-card{background:#fff;border:1px solid #eef0f3;border-radius:10px;overflow:hidden;transition:all .3s ease;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.part-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.10);border-color:#0b2a4a}
+.part-card a{display:block;padding:18px;background:#fff;text-align:center}
+.part-card img{width:100%;height:170px;object-fit:contain;transition:transform .4s ease}
+.part-card:hover img{transform:scale(1.06)}
+.part-card h3{font-size:14px;font-weight:600;color:#0b2a4a;text-align:center;padding:14px 10px 16px;border-top:1px solid #f0f2f5;margin:0;line-height:1.5}
+@media(max-width:1024px){.parts-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.parts-grid{grid-template-columns:repeat(2,1fr)}.page-banner h1{font-size:32px}.page-banner{padding:90px 0 45px}}
+@media(max-width:480px){.parts-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="header-top">
+<div class="layout">
+<div class="tel"><i class="fas fa-phone-alt"></i> 86+18591976330</div>
+<div class="top-right">
+<div class="social">
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-weixin"></i></a>
+</div>
+<a href="#" class="inquiry-btn">inquiry</a>
+</div>
+</div>
+</div>
+<div class="header-main">
+<div class="layout">
+<a href="index.html" class="logo">
+<img src="https://ecdn6.globalso.com/upload/m/image_other/2026-07/layer-1-30.png" alt="SHACMAN logo">
+<span class="logo-text">SHA<span>CMAN</span> SAGMOTO</span>
+</a>
+<ul class="nav" id="navMenu">
+<li class="mobile-close" id="navClose" style="display:none"><i class="fas fa-times"></i></li>
+<li><a href="index.html">Home</a></li>
+<li>
+<a href="index.html#shacman-trucks">Our Trucks <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
+<ul class="dropdown">
+<li><a href="index.html#shacman-trucks">SHACMAN Trucks <i class="fas fa-chevron-right" style="font-size:10px"></i></a>
+<ul class="dropdown-sub">
+<li><a href="x6000.html">X6000</a></li><li><a href="x5000.html">X5000</a></li><li><a href="x3000.html">X3000</a></li>
+<li><a href="l3000.html">L3000</a></li><li><a href="h3000.html">H3000</a></li><li><a href="f3000.html">F3000</a></li>
+</ul>
+</li>
+<li><a href="index.html#sagmoto-trucks">SAGMOTO Trucks <i class="fas fa-chevron-right" style="font-size:10px"></i></a>
+<ul class="dropdown-sub">
+<li><a href="e1st.html">E1st</a></li><li><a href="x3s.html">X3s</a></li><li><a href="e3.html">E3</a></li>
+<li><a href="x7.html">X7</a></li><li><a href="x9.html">X9</a></li><li><a href="i9.html">i9</a></li><li><a href="z3.html">Z3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#">Parts <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
+<ul class="dropdown">
+<li><a href="engine-parts.html">Engine Parts</a></li><li><a href="gearbox-parts.html">Gearbox Parts</a></li>
+<li class="active"><a href="axle-parts.html">Axle Parts</a></li><li><a href="chassis-parts.html">Chassis Parts</a></li><li><a href="maintenance-parts.html">Maintenance Parts</a></li>
+</ul>
+</li>
+<li><a href="#">Service <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
+<ul class="dropdown">
+<li><a href="service-concept.html">Service Concept</a></li><li><a href="sales-network.html">Service Network</a></li>
+
+</ul>
+</li>
+
+<li><a href="index.html#news">Media <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
+<ul class="dropdown"><li><a href="#">Cases</a></li><li><a href="index.html#news">News</a></li></ul>
+</li>
+<li><a href="contact-us.html">Contact Us</a></li>
+</ul>
+<div class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></div>
+</div>
+</div>
+</header>
+
+<section class="page-banner">
+<div class="layout">
+<span class="banner-tag">SHACMAN</span>
+<h1>Axle Parts</h1>
+<p>High quality axle parts for SHACMAN trucks, including brake drum, brake shoe, axle shaft, bearing, steering knuckle and more.</p>
+</div>
+</section>
+
+<section class="parts-section" id="engine-parts">
+<div class="layout">
+<div class="parts-grid">
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-12.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-12.png" alt="Adjusting arm" loading="lazy"></a>
+  <h3>Adjusting arm</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-11.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-11.png" alt="Steering tie rod arm" loading="lazy"></a>
+  <h3>Steering tie rod arm</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-10.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-10.png" alt="Hollow Rivet" loading="lazy"></a>
+  <h3>Hollow Rivet</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-9.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-9.png" alt="Brake Shoe Assembly" loading="lazy"></a>
+  <h3>Brake Shoe Assembly</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-8.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-8.png" alt="Oil Deflector (Grease Shield)" loading="lazy"></a>
+  <h3>Oil Deflector (Grease Shield)</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-7.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-7.png" alt="Axle shaft gear" loading="lazy"></a>
+  <h3>Axle shaft gear</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-6.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-6.png" alt="Brake Backing Plate (Right)" loading="lazy"></a>
+  <h3>Brake Backing Plate (Right)</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-5.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-5.png" alt="Brake Backing Plate (Left)" loading="lazy"></a>
+  <h3>Brake Backing Plate (Left)</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-4.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-4.png" alt="Brake Drum" loading="lazy"></a>
+  <h3>Brake Drum</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-3.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-3.png" alt="Steering Knuckle Pin" loading="lazy"></a>
+  <h3>Steering Knuckle Pin</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-2.png" alt="Wheel Bolt" loading="lazy"></a>
+  <h3>Wheel Bolt</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/axle-parts-1.png" alt="Brake Friction Lining (Upper)" loading="lazy"></a>
+  <h3>Brake Friction Lining (Upper)</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/brake-shoe-assembly.jpg" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/brake-shoe-assembly.jpg" alt="Brake Shoe Assembly" loading="lazy"></a>
+  <h3>Brake Shoe Assembly</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image52-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image52-1.png" alt="Oil seal seat" loading="lazy"></a>
+  <h3>Oil seal seat</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image49.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image49.png" alt="Spacer bush" loading="lazy"></a>
+  <h3>Spacer bush</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image47-3.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image47-3.png" alt="Slotted round nut" loading="lazy"></a>
+  <h3>Slotted round nut</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image45-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image45-2.png" alt="Camshaft bracket" loading="lazy"></a>
+  <h3>Camshaft bracket</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image43-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image43-1.png" alt="Partition ring" loading="lazy"></a>
+  <h3>Partition ring</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image41-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image41-2.png" alt="Sun wheel" loading="lazy"></a>
+  <h3>Sun wheel</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image39.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image39.png" alt="Roller" loading="lazy"></a>
+  <h3>Roller</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image37-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image37-2.png" alt="Stud" loading="lazy"></a>
+  <h3>Stud</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image36-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image36-2.png" alt="Brake camshaft (left)" loading="lazy"></a>
+  <h3>Brake camshaft (left)</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image34-3.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image34-3.png" alt="Open pin" loading="lazy"></a>
+  <h3>Open pin</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image33-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image33-2.png" alt="Left steering tie rod arm" loading="lazy"></a>
+  <h3>Left steering tie rod arm</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image32-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image32-1.png" alt="Brake shoe support pin" loading="lazy"></a>
+  <h3>Brake shoe support pin</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image30-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image30-2.png" alt="Lock nut" loading="lazy"></a>
+  <h3>Lock nut</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image27-3.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image27-3.png" alt="Brake chamber (24/24)" loading="lazy"></a>
+  <h3>Brake chamber (24/24)</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image25-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image25-2.png" alt="Brake drum" loading="lazy"></a>
+  <h3>Brake drum</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image24-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image24-2.png" alt="Oil seal assembly" loading="lazy"></a>
+  <h3>Oil seal assembly</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image22.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image22.png" alt="Bearing" loading="lazy"></a>
+  <h3>Bearing</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image21-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image21-2.png" alt="Middle axle driving shaft" loading="lazy"></a>
+  <h3>Middle axle driving shaft</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image19-3.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image19-3.png" alt="Rear axle driving shaft" loading="lazy"></a>
+  <h3>Rear axle driving shaft</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/1-2.jpg" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/1-2.jpg" alt="Gear ring bracket assembly" loading="lazy"></a>
+  <h3>Gear ring bracket assembly</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image14.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image14.png" alt="Air chamber bracket" loading="lazy"></a>
+  <h3>Air chamber bracket</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image12-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image12-2.png" alt="ABS ring gear ring" loading="lazy"></a>
+  <h3>ABS ring gear ring</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image10-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image10-1.png" alt="Brake shoe assembly" loading="lazy"></a>
+  <h3>Brake shoe assembly</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image9-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image9-2.png" alt="Conic roller bearing" loading="lazy"></a>
+  <h3>Conic roller bearing</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image7-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image7-1.png" alt="Top plate for end cap" loading="lazy"></a>
+  <h3>Top plate for end cap</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image5-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image5-1.png" alt="Hexagon slotted thin nut" loading="lazy"></a>
+  <h3>Hexagon slotted thin nut</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image4-2.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image4-2.png" alt="O-ring" loading="lazy"></a>
+  <h3>O-ring</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image3-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image3-1.png" alt="Adjust arm bracket assembly" loading="lazy"></a>
+  <h3>Adjust arm bracket assembly</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image2-1.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image2-1.png" alt="Rear axle thrust rod support" loading="lazy"></a>
+  <h3>Rear axle thrust rod support</h3>
+</div>
+<div class="part-card">
+  <a href="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image1-3.png" target="_blank" rel="noopener"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/image1-3.png" alt="Planetary axle" loading="lazy"></a>
+  <h3>Planetary axle</h3>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="layout">
+<div class="foot-items">
+<div class="foot-item foot-product">
+<h2 class="foot-title">PRODUCT</h2>
+<ul>
+<li><a href="index.html#shacman-trucks">SHACMAN Trucks</a></li>
+<li><a href="index.html#sagmoto-trucks">SAGMOTO Trucks</a></li>
+</ul>
+</div>
+<div class="foot-item">
+<h2 class="foot-title">QUICK LINKS</h2>
+<ul>
+<li><a href="index.html#hero">Our Trucks</a></li>
+<li><a href="axle-parts.html">Parts</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="contact-us.html">Contact Us</a></li>
+</ul>
+</div>
+<div class="foot-item">
+<h2 class="foot-title">MEDIA</h2>
+<ul>
+<li><a href="index.html#news">Company News</a></li>
+<li><a href="index.html#news">Industry News</a></li>
+</ul>
+</div>
+<div class="foot-item">
+<h2 class="foot-title">FOLLOW US</h2>
+<div class="foot-social">
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-weixin"></i></a>
+</div>
+</div>
+<div class="foot-item foot-contact">
+<h2 class="foot-title">CONTACT US</h2>
+<p><i class="fas fa-map-marker-alt"></i><span><strong>Factory Address</strong>Shaanqi Avenue, Jingwei Industrial Park, Xi'an Economic &amp; Technological Development Zone, Xi'an, Shaanxi 710200, P.R. China</span></p>
+<p><i class="fas fa-phone-alt"></i><span><strong>Phone</strong>86+18591976330 / 86+15895808305</span></p>
+<p><i class="fab fa-whatsapp"></i><span><strong>WhatsApp/Wechat</strong><a href="https://wa.me/8618591976330" target="_blank" rel="noopener">86+18591976330</a></span></p>
+<p><i class="fas fa-envelope"></i><span><strong>E-Mail</strong><a href="mailto:andy15895808305@gmail.com">andy15895808305@gmail.com</a></span></p>
+</div>
+</div>
+</div>
+<div class="foot-bottom">
+<div class="layout">
+<div class="foot-bottom-links">
+<a href="#">Top Search</a><a href="#">Sitemap</a><a href="#">Top Blog</a><a href="#">Top Topic</a>
+</div>
+<p class="copyright">&copy; 2026 SHACMAN Group. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+
+<div class="float-contact">
+<div class="float-item float-email" title="Email"><i class="fas fa-envelope"></i><span class="tip">andy15895808305@gmail.com</span></div>
+<div class="float-item float-call" title="Andy"><i class="fas fa-phone-alt"></i><span class="tip">Andy: 0086 18591976330</span></div>
+<div class="float-item float-whatsapp" title="WhatsApp/Wechat"><i class="fab fa-whatsapp"></i><span class="tip">WhatsApp/Wechat: 86+18591976330</span></div>
+</div>
+<div class="float-top" id="floatTop" title="Back to top"><i class="fas fa-chevron-up"></i></div>
+
+<script>
+// Mobile menu
+var mobileToggle=document.getElementById('mobileToggle');
+var navMenu=document.getElementById('navMenu');
+var navClose=document.getElementById('navClose');
+if(mobileToggle&&navMenu&&navClose){
+mobileToggle.addEventListener('click',function(){navMenu.classList.add('active');navClose.style.display='block';});
+navClose.addEventListener('click',function(){navMenu.classList.remove('active');navClose.style.display='none';});
+}
+document.querySelectorAll('.nav>li>a').forEach(function(link){
+link.addEventListener('click',function(e){
+if(window.innerWidth<=1024){
+var li=link.parentElement;
+if(li.querySelector('.dropdown')){e.preventDefault();li.classList.toggle('active');}
+}
+});
+});
+document.querySelectorAll('.dropdown>li').forEach(function(li){
+li.addEventListener('click',function(e){
+if(window.innerWidth<=1024){
+if(li.querySelector('.dropdown-sub')){e.preventDefault();li.classList.toggle('active');}
+}
+});
+});
+
+// Back to top
+var floatTop=document.getElementById('floatTop');
+if(floatTop){
+window.addEventListener('scroll',function(){
+if(window.scrollY>400){floatTop.classList.add('visible');}
+else{floatTop.classList.remove('visible');}
+});
+floatTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+}
+
+// Smooth scroll for in-page anchors
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+anchor.addEventListener('click',function(e){
+var href=this.getAttribute('href');
+if(href==='#')return;
+var target=document.querySelector(href);
+if(target&&window.innerWidth>1024){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
+});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Urban Sanitation Experts on the Caribbean Coast | SHACMAN News</title>
+<link rel="icon" href="https://ecdn6.globalso.com/upload/m/image_other/2026-07/layer-1-30.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--theme:#0067AE;--sec-theme:#000;--body-color:#313131;--body-bg:#fff;--h-font-size:55px;--nb-h-font-size:40px;--pad-h-font-size:35px;--mob-h-font-size:30px}
+body{font-family:'Montserrat',Arial,sans-serif;color:var(--body-color);background:var(--body-bg);overflow-x:hidden;font-size:16px}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+.layout{max-width:1400px;margin:0 auto;padding:0 20px}
+
+/* ===== HEADER ===== */
+header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+.header-top{background:#f5f6f7;border-bottom:1px solid #eee}
+.header-top .layout{display:flex;justify-content:space-between;align-items:center;padding:6px 20px;font-size:13px}
+.header-top .tel{display:flex;align-items:center;gap:8px}
+.header-top .tel i{color:var(--theme)}
+.header-top .top-right{display:flex;align-items:center;gap:15px}
+.header-top .top-right a{color:var(--body-color);font-size:13px;transition:color .3s}
+.header-top .top-right a:hover{color:var(--theme)}
+.header-top .top-right .social{display:flex;gap:10px}
+.header-top .top-right .social a{color:#666}
+.inquiry-btn{background:var(--theme);color:#fff!important;padding:6px 22px;border-radius:20px;font-weight:600;transition:opacity .3s}
+.inquiry-btn:hover{opacity:.85}
+.header-main .layout{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{width:41px;height:41px}
+.logo-text{font-size:26px;font-weight:800;color:var(--sec-theme);letter-spacing:1px}
+.logo-text span{color:var(--theme)}
+.nav{display:flex;align-items:center;gap:6px}
+.nav>li{position:relative}
+.nav>li>a{display:block;padding:28px 16px;font-size:15px;font-weight:600;color:var(--body-color);text-transform:capitalize;transition:color .3s}
+.nav>li>a:hover,.nav>li.active>a{color:var(--theme)}
+.dropdown{position:absolute;top:100%;left:0;min-width:230px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.12);opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s;z-index:100;border-top:3px solid var(--theme)}
+.nav>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown>li{position:relative}
+.dropdown>li>a{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;font-size:14px;color:var(--body-color);border-bottom:1px solid #f0f0f0;transition:all .3s}
+.dropdown>li>a:hover{color:var(--theme);background:#f8fafc;padding-left:26px}
+.dropdown-sub{position:absolute;left:100%;top:0;min-width:200px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.12);opacity:0;visibility:hidden;transition:all .3s;border-top:3px solid var(--theme)}
+.dropdown>li:hover .dropdown-sub{opacity:1;visibility:visible}
+.dropdown-sub a{display:block;padding:10px 20px;font-size:14px;color:var(--body-color);border-bottom:1px solid #f0f0f0;transition:all .3s}
+.dropdown-sub a:hover{color:var(--theme);background:#f8fafc}
+.mobile-toggle{display:none;font-size:26px;cursor:pointer;color:var(--sec-theme)}
+
+/* ===== SECTION TITLE ===== */
+section{padding:90px 0}
+.section-title{text-align:center;margin-bottom:55px}
+.section-title h2{font-size:var(--h-font-size);font-weight:800;color:var(--sec-theme);text-transform:capitalize;line-height:1.2}
+.section-title h2 .small{color:var(--theme);text-transform:uppercase}
+.section-title h2 .big{text-transform:uppercase}
+.section-title .underline{width:80px;height:3px;background:var(--theme);margin:18px auto 0;border-radius:2px}
+.section-title p{font-size:15px;color:#666;max-width:750px;margin:18px auto 0;line-height:1.8}
+
+/* ===== NEWS ===== */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.news-card{background:#fff;overflow:hidden;transition:all .4s;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.news-card:hover{box-shadow:0 15px 35px rgba(0,0,0,.12);transform:translateY(-6px)}
+.news-img{height:230px;overflow:hidden;position:relative}
+.news-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.news-card:hover .news-img img{transform:scale(1.06)}
+.news-date{position:absolute;top:16px;left:16px;background:var(--theme);color:#fff;padding:8px 16px;font-size:12px;font-weight:700;border-radius:3px}
+.news-body{padding:25px}
+.news-body h3{font-size:17px;font-weight:700;color:var(--sec-theme);line-height:1.5;margin-bottom:12px;transition:color .3s}
+.news-body h3:hover{color:var(--theme)}
+.news-body p{font-size:14px;color:#777;line-height:1.7;margin-bottom:15px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.read-more{font-size:13px;font-weight:700;color:var(--theme);text-transform:uppercase;letter-spacing:1px}
+.read-more i{transition:transform .3s}
+.read-more:hover i{transform:translateX(5px)}
+
+/* ===== FOOTER ===== */
+footer{background:#e9ebeb}
+.foot-items{display:flex;flex-wrap:wrap;padding:70px 0 50px;border-bottom:1px solid #c9caca}
+.foot-item{width:17.5%;padding-left:40px;border-right:1px solid #c9caca}
+.foot-item.foot-contact{flex:1;padding-right:30px;border-right:0}
+.foot-title{font-size:20px;font-weight:700;color:var(--sec-theme);margin-bottom:22px;line-height:1}
+.foot-item ul li{list-style:none;font-size:16px;line-height:2.125;color:var(--body-color)}
+.foot-item ul li a{transition:color .3s}
+.foot-item ul li a:hover{color:var(--theme)}
+.foot-social{display:flex;gap:10px;margin-top:15px}
+.foot-social a{width:38px;height:38px;background:#d5d8da;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--body-color);transition:all .3s}
+.foot-social a:hover{background:var(--theme);color:#fff}
+.foot-contact p{font-size:15px;line-height:1.8;color:var(--body-color);display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+.foot-contact p i{color:var(--theme);margin-top:4px;min-width:16px}
+.foot-contact p strong{display:block;color:var(--sec-theme);font-size:14px;letter-spacing:1px;margin-bottom:3px}
+.foot-title a{color:inherit;transition:color .3s}
+.foot-title a:hover{color:var(--theme)}
+.foot-bottom{background:#eff0f0;padding:30px 0 24px}
+.foot-bottom .layout{display:flex;justify-content:center;align-items:center;flex-direction:column;gap:8px}
+.foot-bottom .copyright{font-size:15px;color:var(--body-color)}
+.foot-bottom-links{display:flex;gap:20px}
+.foot-bottom-links a{font-size:14px;color:var(--body-color);transition:color .3s}
+.foot-bottom-links a:hover{color:var(--theme)}
+
+/* ===== FLOAT ===== */
+.float-contact{position:fixed;right:16px;bottom:90px;z-index:999;display:flex;flex-direction:column;gap:8px}
+.float-item{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.18);transition:transform .3s;position:relative}
+.float-item:hover{transform:scale(1.08)}
+.float-item .tip{position:absolute;right:56px;top:50%;transform:translateY(-50%);background:#313131;color:#fff;font-size:12px;padding:6px 12px;border-radius:4px;white-space:nowrap;opacity:0;visibility:hidden;transition:all .3s}
+.float-item:hover .tip{opacity:1;visibility:visible}
+.float-email{background:var(--theme)}
+.float-whatsapp{background:#25d366}
+.float-call{background:#f39c12}
+.float-top{position:fixed;right:16px;bottom:34px;z-index:999;background:#313131;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.18);transition:all .3s;opacity:0;visibility:hidden}
+.float-top.visible{opacity:1;visibility:visible}
+.float-top:hover{background:var(--theme)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1366px){.layout{max-width:1200px}}
+@media(max-width:1024px){
+:root{--h-font-size:var(--nb-h-font-size)}
+.nav{position:fixed;top:0;left:-100%;width:80%;max-width:360px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:80px 30px 30px;transition:left .4s;z-index:1200;box-shadow:0 0 30px rgba(0,0,0,.15);overflow-y:auto}
+.nav.active{left:0}
+.nav>li{width:100%}
+.nav>li>a{padding:14px 0;border-bottom:1px solid #eee;width:100%}
+.dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;display:none;border-top:0}
+.nav>li.active>.dropdown{display:block}
+.dropdown-sub{position:static;opacity:1;visibility:visible;box-shadow:none;display:none;border-top:0;padding-left:15px}
+.dropdown>li.active .dropdown-sub{display:block}
+.mobile-toggle{display:block}
+.mobile-close{position:absolute;top:20px;right:20px;font-size:24px;cursor:pointer}
+.news-grid{grid-template-columns:1fr 1fr}
+.foot-item{width:30%;margin-bottom:30px}
+.foot-item.foot-contact{width:40%;flex:none}
+}
+@media(max-width:760px){
+:root{--h-font-size:var(--pad-h-font-size)}
+.news-grid{grid-template-columns:1fr}
+.foot-item{width:50%}
+.foot-item.foot-contact{width:100%;padding-left:40px}
+.section-title h2{font-size:30px}
+.foot-items{padding:50px 0 30px}
+.header-top .top-right .social{display:none}
+}
+@media(max-width:480px){
+:root{--h-font-size:var(--mob-h-font-size)}
+.foot-item{width:100%;border-right:0;border-bottom:1px solid #c9caca;padding-left:20px;margin-bottom:0;padding-bottom:20px}
+.foot-item.foot-contact{border-bottom:0}
+}
+
+
+/* ===== NEWS DETAIL PAGE ===== */
+.news-hero{position:relative;background:linear-gradient(135deg,#0a1f3d 0%,#0d2749 100%);padding:90px 0 70px;text-align:center;color:#fff;overflow:hidden}
+.news-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(0,103,174,.35) 0%,transparent 70%)}
+.news-hero .layout{position:relative;z-index:1}
+.news-hero .banner-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);color:#ffd200;padding:6px 20px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;border:1px solid rgba(255,255,255,.22)}
+.news-hero h1{font-size:38px;margin:0 0 16px;font-weight:800;letter-spacing:.5px;line-height:1.3;max-width:900px;margin-left:auto;margin-right:auto}
+.news-hero .hero-meta{color:rgba(255,255,255,.75);font-size:14px;letter-spacing:1px;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+.news-hero .hero-meta .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4)}
+
+.news-article{padding:70px 0 80px;background:#fff}
+.article-wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.article-cover{width:100%;height:460px;object-fit:cover;border-radius:14px;box-shadow:0 20px 50px rgba(10,31,61,.18);margin-bottom:36px}
+.article-meta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid #e8ebef;margin-bottom:36px}
+.article-meta span{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:#777;letter-spacing:.5px}
+.article-meta i{color:var(--theme)}
+.article-meta .m-date{background:#e8f4fc;color:var(--theme);padding:6px 16px;border-radius:20px;font-weight:700;font-size:12.5px;letter-spacing:1px}
+
+.article-body p{font-size:16.5px;line-height:1.95;color:#3d4450;margin-bottom:24px}
+.article-body p:first-of-type::first-letter{font-size:52px;font-weight:800;color:var(--theme);float:left;line-height:.85;padding:6px 12px 0 0}
+.article-body h3{font-size:23px;font-weight:800;color:#0b2a4a;margin:44px 0 20px;padding-left:16px;border-left:4px solid var(--theme);line-height:1.4}
+.article-list{margin:0 0 24px;padding:24px 28px;background:#f6f9fc;border-radius:12px;border:1px solid #e6edf5}
+.article-list li{position:relative;padding:10px 0 10px 28px;font-size:15.5px;line-height:1.8;color:#3d4450;border-bottom:1px dashed #e2e9f2}
+.article-list li:last-child{border-bottom:0}
+.article-list li::before{content:'\f138';font-family:'Font Awesome 5 Free';font-weight:900;position:absolute;left:2px;top:12px;color:var(--theme);font-size:14px}
+.article-body blockquote{position:relative;margin:36px 0;padding:30px 34px 28px;background:linear-gradient(135deg,#f6f9fc,#eef4fa);border-left:5px solid var(--theme);border-radius:0 12px 12px 0}
+.article-body blockquote p{font-size:18px;font-style:italic;color:#0b2a4a;margin:0;line-height:1.8;font-weight:600}
+.article-body blockquote span{display:block;margin-top:14px;font-size:13.5px;color:#7a8697;font-style:normal;letter-spacing:.5px}
+
+.article-footer{margin-top:48px;padding-top:34px;border-top:1px solid #e8ebef}
+.article-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-outline,.btn-solid{display:inline-flex;align-items:center;gap:10px;padding:13px 30px;border-radius:30px;font-size:14px;font-weight:700;letter-spacing:.5px;transition:all .3s}
+.btn-outline{color:var(--theme);border:2px solid var(--theme)}
+.btn-outline:hover{background:var(--theme);color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,103,174,.25)}
+.btn-solid{background:var(--theme);color:#fff;border:2px solid var(--theme)}
+.btn-solid:hover{background:#00518c;border-color:#00518c;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,103,174,.25)}
+
+/* ===== CTA BAND ===== */
+.cta-band{background:linear-gradient(135deg,#0a1f3d 0%,#0d2749 60%,#123b6d 100%);padding:70px 0;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;bottom:-140px;left:-100px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(0,103,174,.4) 0%,transparent 70%)}
+.cta-band .layout{position:relative;z-index:1}
+.cta-band h2{font-size:34px;font-weight:800;margin-bottom:14px;letter-spacing:.5px}
+.cta-band p{color:rgba(255,255,255,.8);font-size:16px;max-width:640px;margin:0 auto 30px;line-height:1.8}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:#ffd200;color:#0a1f3d;padding:15px 38px;border-radius:30px;font-size:15px;font-weight:800;letter-spacing:.5px;transition:all .3s}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(0,0,0,.35)}
+
+/* ===== MORE NEWS ===== */
+.more-news{background:#f6f8fa;padding:80px 0 90px}
+.more-news .section-title{margin-bottom:40px}
+.more-news .news-grid{grid-template-columns:repeat(2,1fr);max-width:920px;margin:0 auto}
+@media(max-width:760px){
+.more-news .news-grid{grid-template-columns:1fr}
+.article-cover{height:240px;border-radius:10px}
+.news-hero{padding:70px 0 55px}
+.news-hero h1{font-size:26px}
+.article-body p{font-size:15.5px}
+.article-body h3{font-size:20px}
+.article-body p:first-of-type::first-letter{font-size:44px}
+.cta-band h2{font-size:26px}
+.article-actions .btn-outline,.article-actions .btn-solid{width:100%;justify-content:center}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="header-top">
+<div class="layout">
+<div class="tel"><i class="fas fa-phone-alt"></i> 86+18591976330</div>
+<div class="top-right">
+<div class="social">
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-weixin"></i></a>
+</div>
+<a href="#" class="inquiry-btn">inquiry</a>
+</div>
+</div>
+</div>
+<div class="header-main">
+<div class="layout">
+<a href="index.html" class="logo">
+<img src="https://ecdn6.globalso.com/upload/m/image_other/2026-07/layer-1-30.png" alt="SHACMAN logo">
+<span class="logo-text">SHA<span>CMAN</span> SAGMOTO</span>
+</a>
+<ul class="nav" id="navMenu">
+<li class="mobile-close" id="navClose" style="display:none"><i class="fas fa-times"></i></li>
+<li><a href="index.html">Home</a></li>
+<li>
+<a href="index.html#shacman-trucks">Our Trucks <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
+<ul class="dropdown">
+<li><a href="index.html#shacman-trucks">SHACMAN Trucks <i class="fas fa-chevron-right" style="font-size:10px"></i></a>
+<ul class="dropdown-sub">
+<li><a href="x6000.html">X6000</a></li><li><a href="x5000.html">X5000</a></li><li><a href="x3000.html">X3000</a></li>
+<li><a href="l3000.html">L3000</a></li><li><a href="h3000.html">H3000</a></li><li><a href="f3000.html">F3000</a></li>
+</ul>
+</li>
+<li><a href="index.html#sagmoto-trucks">SAGMOTO Trucks <i class="fas fa-chevron-right" style="font-size:10px"></i></a>
+<ul class="dropdown-sub">
+<li><a href="e1st.html">E1st</a></li><li><a href="x3s.html">X3s</a></li><li><a href="e3.html">E3</a></li>
+<li><a href="x7.html">X7</a></li><li><a href="x9.html">X9</a></li><li><a href="i9.html">i9</a></li><li><a href="z3.html">Z3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#">Parts <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
+<ul class="dropdown">
+<li><a href="engine-parts.html">Engine Parts</a></li><li><a href="gearbox-parts.html">Gearbox Parts</a></li>
+<li><a href="axle-parts.html">Axle Parts</a></li><li><a href="chassis-parts.html">Chassis Parts</a></li><li><a href="maintenance-parts.html">Maintenance Parts</a></li>
+</ul>
+</li>
+<li><a href="#">Service <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
+<ul class="dropdown">
+<li><a href="service-concept.html">Service Concept</a></li><li><a href="sales-network.html">Service Network</a></li>
+</ul>
+</li>
+<li class="active"><a href="index.html#news">Media <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
+<ul class="dropdown"><li><a href="#">Cases</a></li><li><a href="index.html#news">News</a></li></ul>
+</li>
+<li><a href="contact-us.html">Contact Us</a></li>
+</ul>
+<div class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></div>
+</div>
+</div>
+</header>
+
+<section class="news-hero">
+<div class="layout">
+<span class="banner-tag"><i class="far fa-newspaper"></i> Company News</span>
+<h1>Urban Sanitation Experts on the Caribbean Coast</h1>
+<div class="hero-meta">
+<span><i class="far fa-calendar-alt"></i> May 28, 2026</span>
+<span class="dot"></span>
+<span><i class="fas fa-truck-moving"></i> SHACMAN Group</span>
+<span class="dot"></span>
+<span><i class="fas fa-globe"></i> shacmangroup.com</span>
+</div>
+</div>
+</section>
+
+<article class="news-article">
+<div class="article-wrap">
+<img class="article-cover" src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-05/urban-sanitation-experts-on-the-caribbean-coast-3-1.jpg" alt="Urban Sanitation Experts on the Caribbean Coast">
+<div class="article-meta">
+<span class="m-date"><i class="far fa-calendar-alt"></i> May 28, 2026</span>
+<span><i class="far fa-folder-open"></i> Company News</span>
+<span><i class="fas fa-share-alt"></i> Share this story</span>
+</div>
+<div class="article-body">
+<p>Jose lives in a Caribbean coastal city with a pleasant climate. He works in the equipment and transportation department of the local municipal government, responsible for the procurement and operation management of municipal equipment. "Look at these SHACMAN trucks. If they weren't so rugged, we'd have a real headache on our hands," he has remarked to his colleagues more than once about the over 40 SHACMAN sanitation vehicles currently in operation in the department.</p>
+<p>Jose has known about SHACMAN for a long time, even before the municipal government purchased vehicles. He learned about the brand through interactions with local fleets. According to fleet managers, SHACMAN vehicles have proven to be very durable over long-term use. This feedback from end-users left a lasting impression on Jose.</p>
+<p>In 2018, as the demand for urban sanitation increased, the local town hall needed to purchase a new batch of garbage trucks. As the project leader for procurement, Jose thought of SHACMAN brand, whose excellent durability was perfect for the continuous long hours of operation required for municipal sanitation purposes. After several rounds of intense competition, the SHACMAN F3000 garbage truck successfully won the bid and was quickly put into use.</p>
+<p>Due to the extensive coverage of sanitation work across dozens of neighborhoods, municipal drivers need to rotate in three shifts, ensuring that F3000 operates almost around the clock. Even under such heavy workloads, the vehicles maintain high attendance rates and low failure rates, earning everyone's praise for the quality of SHACMAN.</p>
+<p>From 2018 to the present, the City Hall has purchased nearly 50 SHACMAN F3000 and L3000 garbage trucks in three batches. Combined with SHACMAN's well-established service station network locally, these vehicles are ensuring a better quality of life for the city's residents.</p>
+</div>
+<div class="article-footer">
+<div class="article-actions">
+<a href="https://www.shacmangroup.com/news/urban-sanitation-experts-on-the-caribbean-coast/" target="_blank" rel="noopener" class="btn-outline"><i class="fas fa-external-link-alt"></i> View Original Article</a>
+<a href="index.html#news" class="btn-solid"><i class="fas fa-arrow-left"></i> Back to News</a>
+</div>
+</div>
+</div>
+</article>
+
+<section class="cta-band">
+<div class="layout">
+<h2>Explore Our Full Range of Trucks</h2>
+<p>From heavy-duty mining transport to municipal sanitation — there is a SHACMAN built for every mission, backed by a global service network.</p>
+<a href="index.html#shacman-trucks" class="cta-btn">View Our Trucks <i class="fas fa-arrow-right"></i></a>
+</div>
+</section>
+
+<section class="more-news">
+<div class="layout">
+<div class="section-title">
+<h2><span class="small">more</span> <span class="big">news</span></h2>
+<div class="underline"></div>
+</div>
+<div class="news-grid">
+<div class="news-card">
+<div class="news-img"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-05/officially-entered-its-trial-operation-phase-2.jpg" alt="Over 1,000 SHACMAN Trucks Operate at Peak Efficiency">
+<div class="news-date">28 May</div></div>
+<div class="news-body">
+<h3>Over 1,000 SHACMAN Trucks Operate at Peak Efficiency</h3>
+<p>By late 2025, the Trans-Guinean Railway stretching from the world-class Simandou iron ore mine to the Port of Morebaya officially entered its trial operation phase.</p>
+<a href="news-trans-guinean.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="news-card">
+<div class="news-img"><img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-05/transporting-miracle-1.jpg" alt="A Transporting Miracle in the Rub al Khali Desert">
+<div class="news-date">28 May</div></div>
+<div class="news-body">
+<h3>A Transporting Miracle in the Rub al Khali Desert</h3>
+<p>In the vast expanse of Saudi Arabia Rub al Khali Desert, a convoy of SHACMAN X3000 heavy-duty trucks crosses the Gobi in a display of sheer power.</p>
+<a href="news-desert-miracle.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<footer>
+<div class="layout">
+<div class="foot-items">
+<div class="foot-item foot-product">
+<h2 class="foot-title">PRODUCT</h2>
+<ul>
+<li><a href="index.html#shacman-trucks">SHACMAN Trucks</a></li>
+<li><a href="index.html#sagmoto-trucks">SAGMOTO Trucks</a></li>
+</ul>
+</div>
+<div class="foot-item">
+<h2 class="foot-title">QUICK LINKS</h2>
+<ul>
+<li><a href="index.html#hero">Our Trucks</a></li>
+<li><a href="axle-parts.html">Parts</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="contact-us.html">Contact Us</a></li>
+</ul>
+</div>
+<div class="foot-item">
+<h2 class="foot-title">MEDIA</h2>
+<ul>
+<li><a href="index.html#news">Company News</a></li>
+<li><a href="index.html#news">Industry News</a></li>
+</ul>
+</div>
+<div class="foot-item">
+<h2 class="foot-title">FOLLOW US</h2>
+<div class="foot-social">
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-weixin"></i></a>
+</div>
+</div>
+<div class="foot-item foot-contact">
+<h2 class="foot-title">CONTACT US</h2>
+<p><i class="fas fa-map-marker-alt"></i><span><strong>Factory Address</strong>Shaanqi Avenue, Jingwei Industrial Park, Xi'an Economic &amp; Technological Development Zone, Xi'an, Shaanxi 710200, P.R. China</span></p>
+<p><i class="fas fa-phone-alt"></i><span><strong>Phone</strong>86+18591976330 / 86+15895808305</span></p>
+<p><i class="fab fa-whatsapp"></i><span><strong>WhatsApp/Wechat</strong><a href="https://wa.me/8618591976330" target="_blank" rel="noopener">86+18591976330</a></span></p>
+<p><i class="fas fa-envelope"></i><span><strong>E-Mail</strong><a href="mailto:andy15895808305@gmail.com">andy15895808305@gmail.com</a></span></p>
+</div>
+</div>
+</div>
+<div class="foot-bottom">
+<div class="layout">
+<div class="foot-bottom-links">
+<a href="#">Top Search</a><a href="#">Sitemap</a><a href="#">Top Blog</a><a href="#">Top Topic</a>
+</div>
+<p class="copyright">&copy; 2026 SHACMAN Group. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+
+<div class="float-contact">
+<div class="float-item float-email" title="Email"><i class="fas fa-envelope"></i><span class="tip">andy15895808305@gmail.com</span></div>
+<div class="float-item float-call" title="Andy"><i class="fas fa-phone-alt"></i><span class="tip">Andy: 0086 18591976330</span></div>
+<div class="float-item float-whatsapp" title="WhatsApp/Wechat"><i class="fab fa-whatsapp"></i><span class="tip">WhatsApp/Wechat: 86+18591976330</span></div>
+</div>
+<div class="float-top" id="floatTop" title="Back to top"><i class="fas fa-chevron-up"></i></div>
+
+<script>
+// Mobile menu
+var mobileToggle=document.getElementById('mobileToggle');
+var navMenu=document.getElementById('navMenu');
+var navClose=document.getElementById('navClose');
+if(mobileToggle&&navMenu&&navClose){
+mobileToggle.addEventListener('click',function(){navMenu.classList.add('active');navClose.style.display='block';});
+navClose.addEventListener('click',function(){navMenu.classList.remove('active');navClose.style.display='none';});
+}
+document.querySelectorAll('.nav>li>a').forEach(function(link){
+link.addEventListener('click',function(e){
+if(window.innerWidth<=1024){
+var li=link.parentElement;
+if(li.querySelector('.dropdown')){e.preventDefault();li.classList.toggle('active');}
+}
+});
+});
+document.querySelectorAll('.dropdown>li').forEach(function(li){
+li.addEventListener('click',function(e){
+if(window.innerWidth<=1024){
+if(li.querySelector('.dropdown-sub')){e.preventDefault();li.classList.toggle('active');}
+}
+});
+});
+
+// Back to top
+var floatTop=document.getElementById('floatTop');
+if(floatTop){
+window.addEventListener('scroll',function(){
+if(window.scrollY>400){floatTop.classList.add('visible');}
+else{floatTop.classList.remove('visible');}
+});
+floatTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+}
+</script>
+</body>
+</html>

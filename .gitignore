@@ -1,0 +1,20 @@
+# WorkBuddy 记忆与配置
+.workbuddy/
+
+# 开发用一次性脚本
+*.py
+*.ps1
+
+# 本地备份与说明文件
+original_site.html
+original_style.css
+README_如何替换照片.txt
+images/original/
+*.bak
+
+# 待替换照片（本地素材）
+待替换照片/
+
+# 办公文档（不需要上线）
+*.docx
+*.xlsx

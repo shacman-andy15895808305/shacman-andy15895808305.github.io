@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eef2f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#bg)"/>
+  <rect width="800" height="520" fill="url(#grid)"/>
+
+  <!-- truck outline -->
+  <g stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="9,7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- cab -->
+    <path d="M120 360 L120 240 L240 240 L260 200 L340 200 L340 360 Z"/>
+    <!-- cargo box -->
+    <path d="M340 360 L340 220 L640 220 L680 260 L680 360 Z"/>
+    <!-- bottom -->
+    <path d="M120 360 L680 360"/>
+  </g>
+
+  <!-- wheels -->
+  <g fill="#cbd5e1" stroke="#64748b" stroke-width="2">
+    <circle cx="190" cy="385" r="28"/>
+    <circle cx="280" cy="385" r="28"/>
+    <circle cx="430" cy="385" r="28"/>
+    <circle cx="520" cy="385" r="28"/>
+    <circle cx="610" cy="385" r="28"/>
+  </g>
+
+  <!-- text -->
+  <text x="400" y="455" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#475569" text-anchor="middle" letter-spacing="2">IMAGE PENDING</text>
+  <text x="400" y="488" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">图片待上传 · waiting for the truck photo</text>
+</svg>
