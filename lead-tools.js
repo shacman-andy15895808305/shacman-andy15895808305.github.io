@@ -1,4 +1,12 @@
 (function(){
+  if(/\/news\.html$/.test(location.pathname)){
+    var firstNewsGrid=document.querySelector('.section:not(.gray) .news-grid');
+    if(firstNewsGrid){firstNewsGrid.classList.add('news-grid--featured');}
+    var currentNews=document.querySelector('.nav-links a[href="news.html"]');
+    if(currentNews){currentNews.setAttribute('aria-current','page');}
+    var quoteNav=document.querySelector('.nav-links a[href="request-quote.html"]');
+    if(quoteNav){quoteNav.classList.add('quote-link');}
+  }
   var page=(document.querySelector('h1')||document.querySelector('title'));
   var topic=page?page.textContent.trim():'SHACMAN truck';
   var message='Hello Andy, I am interested in '+topic+'. Please help me choose a configuration and prepare a quotation.';

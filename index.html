@@ -64,17 +64,21 @@ header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 1px 6px r
 .mobile-toggle{display:none;font-size:26px;cursor:pointer;color:var(--sec-theme)}
 
 /* ===== HERO ===== */
-.hero{position:relative;height:100vh;min-height:640px;overflow:hidden}
+.hero{position:relative;height:calc(100vh - 112px);min-height:650px;max-height:820px;overflow:hidden;background:#0b2638}
 .hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.2s ease}
 .hero-slide.active{opacity:1}
-.hero-slide img{width:100%;height:100%;object-fit:cover}
+.hero-slide>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-slide::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.15) 60%,rgba(0,0,0,.3) 100%)}
-.hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 60px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 520px 0 60px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .hero-tag{display:inline-block;background:var(--theme);color:#fff;padding:7px 22px;border-radius:30px;font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:22px;text-transform:uppercase}
 .hero-content h1,.hero-content h2{color:#fff;font-size:48px;font-weight:800;line-height:1.25;margin-bottom:20px;text-shadow:0 2px 12px rgba(0,0,0,.4);max-width:800px;text-transform:capitalize}
 .hero-content p{color:#f0f4f8;font-size:17px;line-height:1.8;max-width:620px;margin-bottom:30px}
-.hero-btn{display:inline-flex;align-items:center;gap:10px;background:var(--theme);color:#fff;padding:14px 34px;border-radius:30px;font-size:14px;font-weight:700;transition:all .3s}
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.hero-btn{display:inline-flex;align-items:center;gap:10px;background:var(--theme);color:#fff;padding:14px 28px;border-radius:30px;font-size:14px;font-weight:700;transition:all .3s;border:1px solid var(--theme)}
 .hero-btn:hover{background:#00518c;transform:translateY(-2px)}
+.hero-btn.secondary{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.72);backdrop-filter:blur(6px)}.hero-btn.secondary:hover{background:#fff;color:#0c314a}
+.hero-quote{position:absolute;z-index:4;right:max(28px,calc((100vw - 1400px)/2 + 30px));top:50%;transform:translateY(-50%);width:390px;background:rgba(255,255,255,.97);border-radius:18px;padding:25px;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.hero-quote .eyebrow{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--theme);margin-bottom:6px}.hero-quote h2{font-size:25px;line-height:1.22;color:#102d42;margin:0 0 8px}.hero-quote>p{font-size:13px;line-height:1.55;color:#65717a;margin:0 0 16px}.quick-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick-form label{font-size:12px;font-weight:700;color:#33424d}.quick-form .full{grid-column:1/-1}.quick-form input,.quick-form select{width:100%;margin-top:5px;border:1px solid #d5dde3;border-radius:8px;padding:10px 11px;font:inherit;font-size:13px;background:#fff;color:#243642}.quick-form input:focus,.quick-form select:focus{outline:2px solid rgba(0,103,174,.18);border-color:var(--theme)}.quick-form button{grid-column:1/-1;border:0;border-radius:9px;background:#20a657;color:#fff;padding:12px 14px;font:inherit;font-weight:800;cursor:pointer}.quick-form button:hover{background:#168a47}.quote-privacy{font-size:11px!important;color:#78848c!important;margin:9px 0 0!important;text-align:center}.quote-languages{display:flex;justify-content:center;gap:10px;margin-top:8px;font-size:11px}.quote-languages a{color:#0876bc;font-weight:700}
+.trust-strip{background:#fff;border-bottom:1px solid #e8edf1}.trust-strip .layout{display:grid;grid-template-columns:repeat(4,1fr)}.trust-point{display:flex;align-items:center;gap:12px;padding:20px 22px;border-right:1px solid #e8edf1}.trust-point:last-child{border-right:0}.trust-point i{color:var(--theme);font-size:22px}.trust-point strong{display:block;font-size:14px;color:#142e40}.trust-point span{font-size:12px;color:#6b7780}
 .hero-arrows{position:absolute;bottom:40px;right:60px;z-index:3;display:flex;gap:12px}
 .hero-arrow{width:50px;height:50px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:all .3s;background:rgba(0,0,0,.2)}
 .hero-arrow:hover{background:var(--theme);border-color:var(--theme)}
@@ -143,6 +147,7 @@ section{padding:90px 0}
 .advantage-card:hover .adv-icon{background:var(--theme);color:#fff}
 .advantage-card h3{font-size:22px;font-weight:800;color:var(--sec-theme);margin-bottom:15px;text-transform:uppercase;letter-spacing:1px}
 .advantage-card p{color:#777;font-size:14px;line-height:1.8}
+.process-section{background:#0b2e47;color:#fff}.process-section .section-title h2{color:#fff}.process-section .section-title p{color:#c9d9e4}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:steps}.process-card{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:28px 23px;counter-increment:steps}.process-card:before{content:'0' counter(steps);display:block;color:#56b8f0;font-size:13px;font-weight:800;letter-spacing:1px;margin-bottom:22px}.process-card i{font-size:29px;color:#f3a712;margin-bottom:17px}.process-card h3{font-size:18px;margin-bottom:9px}.process-card p{font-size:14px;line-height:1.65;color:#c7d6e0}.trust-note{max-width:850px;margin:28px auto 0;text-align:center;color:#bdd0dc;font-size:13px}
 
 /* ===== CONTACT US ===== */
 .contact-section{background:#f6f8fa;padding:80px 0 90px}
@@ -236,7 +241,7 @@ footer{background:#e9ebeb}
 .mobile-toggle{display:block}
 .mobile-close{position:absolute;top:20px;right:20px;font-size:24px;cursor:pointer}
 .hero-content h1,.hero-content h2{font-size:36px}
-.hero-content{padding:0 40px}
+.hero{height:auto;min-height:760px}.hero-content{padding:0 430px 0 40px;min-height:760px}.hero-quote{right:24px;width:370px}
 .hero-arrows{right:40px}
 .slide-down{left:40px}
 .main-slider,.thumbs-slider{width:100%}
@@ -247,13 +252,14 @@ footer{background:#e9ebeb}
 .outer-swiper-wrap{flex-direction:column}
 .gallery-item{width:260px;height:195px}
 .advantage-grid{grid-template-columns:1fr 1fr}
+.process-grid{grid-template-columns:1fr 1fr}.trust-strip .layout{grid-template-columns:1fr 1fr}.trust-point:nth-child(2){border-right:0}
 .news-grid{grid-template-columns:1fr 1fr}
 .foot-item{width:30%;margin-bottom:30px}
 .foot-item.foot-contact{width:40%;flex:none}
 }
 @media(max-width:760px){
 :root{--h-font-size:var(--pad-h-font-size)}
-.hero-content h1,.hero-content h2{font-size:28px}
+.hero{min-height:1040px}.hero-slide>img{height:510px}.hero-slide::after{height:510px;background:linear-gradient(90deg,rgba(0,0,0,.7),rgba(0,0,0,.28))}.hero-content{height:510px;min-height:510px;padding:0 20px 40px}.hero-content h1,.hero-content h2{font-size:30px}.hero-quote{top:535px;left:18px;right:18px;transform:none;width:auto;padding:22px}.slide-down{display:none}
 .hero-content p{font-size:15px}
 .hero-arrows{display:none}
 .slide-down{left:20px;bottom:30px}
@@ -263,6 +269,7 @@ footer{background:#e9ebeb}
 .thumbs-item{width:calc(50% - 8px)}
 .gallery-item{width:220px;height:165px}
 .advantage-grid{grid-template-columns:1fr}
+.process-grid{grid-template-columns:1fr}.trust-strip .layout{grid-template-columns:1fr}.trust-point{border-right:0;border-bottom:1px solid #e8edf1}.trust-point:last-child{border-bottom:0}
 .news-grid{grid-template-columns:1fr}
 .form-row{grid-template-columns:1fr}
 .foot-item{width:50%}
@@ -276,7 +283,7 @@ footer{background:#e9ebeb}
 .thumbs-item{width:100%}
 .foot-item{width:100%;border-right:0;border-bottom:1px solid #c9caca;padding-left:20px;margin-bottom:0;padding-bottom:20px}
 .foot-item.foot-contact{border-bottom:0}
-.hero-content{padding:0 20px}
+.quick-form{grid-template-columns:1fr}.quick-form .full,.quick-form button{grid-column:1}.hero{min-height:1160px}.logo-text{font-size:20px}
 }
 
 
@@ -295,7 +302,7 @@ footer{background:#e9ebeb}
 <a href="#"><i class="fab fa-instagram"></i></a>
 <a href="#"><i class="fab fa-weixin"></i></a>
 </div>
-<a href="#" class="inquiry-btn">inquiry</a>
+<a href="#quick-quote" class="inquiry-btn">Get a Quote</a>
 </div>
 </div>
 </div>
@@ -354,30 +361,30 @@ footer{background:#e9ebeb}
 
 <div class="hero" id="hero">
 <div class="hero-slide active">
-<img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/f25f5db1-094a-4aaa-8dad-94c5e4ab5cdf.jpg" alt="SHACMAN X6000">
+<img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-07/f25f5db1-094a-4aaa-8dad-94c5e4ab5cdf.jpg" alt="SHACMAN X6000" fetchpriority="high" decoding="async">
 <div class="hero-content">
 <span class="hero-tag">SHACMAN X6000</span>
 <h1>SHACMAN Trucks for Sale and Export Solutions</h1>
 <p>Configuration, quotation, inspection and shipping support for overseas B2B truck buyers.</p>
-<a href="#shacman-trucks" class="hero-btn">Explore Now <i class="fas fa-arrow-right"></i></a>
+<div class="hero-actions"><a href="#quick-quote" class="hero-btn">Get a Quote <i class="fas fa-arrow-right"></i></a><a href="https://wa.me/8618591976330?text=Hello%2C%20I%20am%20interested%20in%20SHACMAN%20trucks.%20Please%20help%20me%20choose%20a%20configuration." class="hero-btn secondary" target="_blank" rel="noopener">WhatsApp Us <i class="fab fa-whatsapp"></i></a></div>
 </div>
 </div>
 <div class="hero-slide">
-<img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/20260509163513_2_97.jpg" alt="SHACMAN Trucks">
+<img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/20260509163513_2_97.jpg" alt="SHACMAN Trucks" decoding="async">
 <div class="hero-content">
 <span class="hero-tag">SHACMAN</span>
 <h2>SHACMAN Trucks for Mining, Construction and Logistics</h2>
 <p>Configuration, quotation, inspection and shipping support for overseas B2B truck buyers.</p>
-<a href="#shacman-trucks" class="hero-btn">Explore Now <i class="fas fa-arrow-right"></i></a>
+<div class="hero-actions"><a href="#quick-quote" class="hero-btn">Get a Quote <i class="fas fa-arrow-right"></i></a><a href="#shacman-trucks" class="hero-btn secondary">View Trucks</a></div>
 </div>
 </div>
 <div class="hero-slide">
-<img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/x6000-outdoor-14.JPG" alt="SHACMAN X6000 Outdoor">
+<img src="https://ecdn6.globalso.com/upload/p/6830/image_other/2026-06/x6000-outdoor-14.JPG" alt="SHACMAN X6000 Outdoor" decoding="async">
 <div class="hero-content">
 <span class="hero-tag">SHACMAN X6000</span>
 <h2>SHACMAN X6000 for Long-Haul Transport</h2>
 <p>Ask about available engine, transmission, axle and cab configurations for your destination market.</p>
-<a href="#shacman-trucks" class="hero-btn">Explore Now <i class="fas fa-arrow-right"></i></a>
+<div class="hero-actions"><a href="#quick-quote" class="hero-btn">Get a Quote <i class="fas fa-arrow-right"></i></a><a href="#shacman-trucks" class="hero-btn secondary">View Trucks</a></div>
 </div>
 </div>
 <div class="slide-down"><span class="line"></span><span>Slide Down</span><i class="fas fa-chevron-down"></i></div>
@@ -385,7 +392,29 @@ footer{background:#e9ebeb}
 <div class="hero-arrow" id="heroPrev"><i class="fas fa-chevron-left"></i></div>
 <div class="hero-arrow" id="heroNext"><i class="fas fa-chevron-right"></i></div>
 </div>
+<aside class="hero-quote" id="quick-quote" aria-label="Quick truck quotation request">
+<div class="eyebrow">Reply by WhatsApp</div>
+<h2>Get the right truck configuration</h2>
+<p>Tell us where and how the truck will work. Your answers will be prepared as a WhatsApp enquiry.</p>
+<form class="quick-form" id="quoteForm">
+<label>Name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+<label>Country<input name="country" autocomplete="country-name" required placeholder="Destination country"></label>
+<label>Truck type<select name="truck"><option>Dump truck</option><option>Tractor truck</option><option>Cargo truck</option><option>Special-purpose truck</option><option>Spare parts</option><option>Not sure yet</option></select></label>
+<label>Quantity<input name="quantity" inputmode="numeric" placeholder="e.g. 5 units"></label>
+<label class="full">Application<input name="application" placeholder="Mining, construction, logistics..."></label>
+<button type="submit"><i class="fab fa-whatsapp"></i> Send Enquiry on WhatsApp</button>
+</form>
+<p class="quote-privacy">No account required. You can review the message before sending.</p>
+<div class="quote-languages" aria-label="Spanish product information"><span>Español:</span><a href="sagmoto-x1s-6x4-volquete.html">X1s 6x4</a><a href="sagmoto-x1s-8x4-volquete.html">X1s 8x4</a></div>
+</aside>
 </div>
+
+<div class="trust-strip" aria-label="Export support highlights"><div class="layout">
+<div class="trust-point"><i class="fas fa-sliders-h"></i><div><strong>Configuration Support</strong><span>Matched to your work conditions</span></div></div>
+<div class="trust-point"><i class="fas fa-clipboard-check"></i><div><strong>Inspection Coordination</strong><span>Pre-shipment checking support</span></div></div>
+<div class="trust-point"><i class="fas fa-ship"></i><div><strong>Export &amp; Shipping</strong><span>Documentation and logistics support</span></div></div>
+<div class="trust-point"><i class="fas fa-tools"></i><div><strong>Parts Follow-up</strong><span>Parts enquiry after delivery</span></div></div>
+</div></div>
 
 
 <section id="hot-recommendations" class="product-section p3">
@@ -399,11 +428,11 @@ footer{background:#e9ebeb}
       <div class="outer-swiper-wrap">
         <div class="main-slider" id="featureMain">
           <div class="product-item">
-            <img src="images/x1s-6x4-dump-truck.png" alt="SAGMOTO X1s 6x4 Dump Truck" data-model="X1s 6x4">
+            <img src="images/x1s-6x4-dump-truck.png" alt="SAGMOTO X1s 6x4 Dump Truck" data-model="X1s 6x4" loading="lazy" decoding="async">
             <div class="item-info"><div class="item-title">X1s 6x4</div><div class="bar-info">Heavy Duty Dump Truck</div></div>
           </div>
           <div class="product-item" style="display:none">
-            <img src="images/x1s-8x4-dump-truck.png" alt="SAGMOTO X1s 8x4 Dump Truck" data-model="X1s 8x4">
+            <img src="images/x1s-8x4-dump-truck.png" alt="SAGMOTO X1s 8x4 Dump Truck" data-model="X1s 8x4" loading="lazy" decoding="async">
             <div class="item-info"><div class="item-title">X1s 8x4</div><div class="bar-info">Heavy Duty Dump Truck</div></div>
           </div>
         </div>
@@ -523,6 +552,19 @@ footer{background:#e9ebeb}
 </div>
 </section>
 
+<section class="process-section" id="export-process">
+<div class="layout">
+<div class="section-title"><h2><span class="small">how we support</span> <span class="big">your truck purchase</span></h2><div class="underline"></div><p>A clear process for overseas dealers, contractors, fleets and project buyers—from working conditions to shipment.</p></div>
+<div class="process-grid">
+<article class="process-card"><i class="fas fa-comments"></i><h3>Define the requirement</h3><p>Share destination, road conditions, application, quantity and preferred delivery schedule.</p></article>
+<article class="process-card"><i class="fas fa-cogs"></i><h3>Confirm configuration</h3><p>Review the available engine, transmission, axle, cab and body options for the intended work.</p></article>
+<article class="process-card"><i class="fas fa-file-invoice-dollar"></i><h3>Quotation and review</h3><p>Receive a configuration-based quotation and confirm commercial and technical details.</p></article>
+<article class="process-card"><i class="fas fa-ship"></i><h3>Inspection and shipment</h3><p>Coordinate pre-shipment checking, export documents and logistics to the destination port.</p></article>
+</div>
+<p class="trust-note">Specifications, availability and delivery arrangements are confirmed for each order and destination market.</p>
+</div>
+</section>
+
 <section class="gallery-section">
 <div class="section-title">
 <h2><span class="small">explore</span> <span class="big">for customers around the world</span></h2>
@@ -630,7 +672,7 @@ footer{background:#e9ebeb}
 </ul>
 </div>
 <div class="foot-item">
-<h2 class="foot-title">MEDIA</h2>
+<h2 class="foot-title">NEWS</h2>
 <ul>
 <li><a href="news.html">Buying Guides</a></li>
 <li><a href="news.html">Product News</a></li>
@@ -745,16 +787,13 @@ document.querySelector('#shacman-trucks').scrollIntoView({behavior:'smooth'});
 });
 
 // Form submit
-document.getElementById('quoteForm').addEventListener('submit',function(e){
+var quoteForm=document.getElementById('quoteForm');
+if(quoteForm){quoteForm.addEventListener('submit',function(e){
 e.preventDefault();
-var btn=e.target.querySelector('.btn-submit');
-btn.textContent='Sending...';
-setTimeout(function(){
-btn.textContent='Sent Successfully!';
-btn.style.background='#28a745';
-setTimeout(function(){btn.textContent='Sending';btn.style.background='';e.target.reset();},2500);
-},1000);
-});
+var data=new FormData(quoteForm);
+var message=['Hello, I would like a truck quotation.','Name: '+data.get('name'),'Country: '+data.get('country'),'Truck type: '+data.get('truck'),'Quantity: '+(data.get('quantity')||'To be confirmed'),'Application: '+(data.get('application')||'To be discussed')].join('\n');
+window.open('https://wa.me/8618591976330?text='+encodeURIComponent(message),'_blank','noopener');
+});}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
