@@ -209,6 +209,14 @@ footer{background:#e9ebeb}
 .float-top{position:fixed;right:16px;bottom:34px;z-index:999;background:#313131;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.18);transition:all .3s;opacity:0;visibility:hidden}
 .float-top.visible{opacity:1;visibility:visible}
 .float-top:hover{background:var(--theme)}
+.catalog-nav>a{color:#fff!important;background:linear-gradient(135deg,#0067ae,#0089d2);padding:10px 18px!important;margin:18px 4px;border-radius:24px;box-shadow:0 5px 16px rgba(0,103,174,.22)}
+.catalog-nav>a:hover{background:linear-gradient(135deg,#00528d,#0076b8)}
+.catalog-menu{width:330px;padding:10px;border-radius:12px;border-top:0;box-shadow:0 18px 45px rgba(13,39,61,.18)}
+.catalog-menu li+li{margin-top:6px}
+.catalog-menu a{display:flex!important;align-items:center;gap:13px;padding:14px!important;border-radius:8px;color:#213243!important;text-transform:none!important}
+.catalog-menu a:hover{background:#eef7fc!important;color:var(--theme)!important}
+.catalog-icon{display:flex;align-items:center;justify-content:center;flex:0 0 42px;height:42px;border-radius:9px;background:#e7f4fc;color:var(--theme);font-size:20px}
+.catalog-copy{display:flex;flex-direction:column;line-height:1.35}.catalog-copy strong{font-size:14px}.catalog-copy small{font-size:12px;color:#6c7883;font-weight:400;margin-top:3px}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1366px){.layout{max-width:1200px}.product-item img{height:460px}}
@@ -218,6 +226,8 @@ footer{background:#e9ebeb}
 .nav.active{left:0}
 .nav>li{width:100%}
 .nav>li>a{padding:14px 0;border-bottom:1px solid #eee;width:100%}
+.catalog-nav>a{color:var(--body-color)!important;background:none;padding:14px 0!important;margin:0;border-radius:0;box-shadow:none}
+.catalog-menu{width:100%;padding:6px 0;box-shadow:none}
 .dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;display:none;border-top:0}
 .nav>li.active>.dropdown{display:block}
 .dropdown-sub{position:static;opacity:1;visibility:visible;box-shadow:none;display:none;border-top:0;padding-left:15px}
@@ -329,6 +339,12 @@ footer{background:#e9ebeb}
 
 <li><a href="#news">Media <i class="fas fa-chevron-down" style="font-size:10px;margin-left:5px"></i></a>
 <ul class="dropdown"><li><a href="#">Cases</a></li><li><a href="#news">News</a></li></ul>
+</li>
+<li class="catalog-nav"><a href="#">Catalog <i class="fas fa-download" style="font-size:11px;margin-left:6px"></i></a>
+<ul class="dropdown catalog-menu">
+<li><a href="shacman-truck-catalog.pdf" download><span class="catalog-icon"><i class="fas fa-truck"></i></span><span class="catalog-copy"><strong>SHACMAN Truck Catalog</strong><small>PDF · 6 pages · 4.8 MB</small></span></a></li>
+<li><a href="sftc-truck-catalog.pdf" download><span class="catalog-icon"><i class="fas fa-file-pdf"></i></span><span class="catalog-copy"><strong>SFTC Truck Catalog</strong><small>PDF · 10 pages · 4.0 MB</small></span></a></li>
+</ul>
 </li>
 <li><a href="contact-us.html">Contact Us</a></li>
 </ul>
