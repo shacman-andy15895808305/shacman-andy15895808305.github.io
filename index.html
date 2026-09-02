@@ -147,7 +147,7 @@ section{padding:90px 0}
 .advantage-card:hover .adv-icon{background:var(--theme);color:#fff}
 .advantage-card h3{font-size:22px;font-weight:800;color:var(--sec-theme);margin-bottom:15px;text-transform:uppercase;letter-spacing:1px}
 .advantage-card p{color:#777;font-size:14px;line-height:1.8}
-.process-section{background:#0b2e47;color:#fff}.process-section .section-title h2{color:#fff}.process-section .section-title p{color:#c9d9e4}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:steps}.process-card{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:28px 23px;counter-increment:steps}.process-card:before{content:'0' counter(steps);display:block;color:#56b8f0;font-size:13px;font-weight:800;letter-spacing:1px;margin-bottom:22px}.process-card i{font-size:29px;color:#f3a712;margin-bottom:17px}.process-card h3{font-size:18px;margin-bottom:9px}.process-card p{font-size:14px;line-height:1.65;color:#c7d6e0}.trust-note{max-width:850px;margin:28px auto 0;text-align:center;color:#bdd0dc;font-size:13px}
+.process-section{background:#0b2e47;color:#fff;padding:64px 0}.process-section .section-title{margin-bottom:34px}.process-section .section-title h2{color:#fff;font-size:42px}.process-section .section-title p{color:#c9d9e4}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:steps}.process-card{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:21px 20px;counter-increment:steps}.process-card:before{content:'0' counter(steps);display:block;color:#56b8f0;font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:12px}.process-card i{font-size:23px;color:#f3a712;margin-bottom:12px}.process-card h3{font-size:16px;margin-bottom:7px}.process-card p{font-size:13px;line-height:1.55;color:#c7d6e0}.process-proof{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:24px}.proof-visual{position:relative;min-height:290px;border-radius:14px;overflow:hidden}.proof-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.proof-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,26,41,.8),rgba(5,26,41,.12))}.proof-copy{position:absolute;z-index:2;left:26px;bottom:24px;max-width:430px}.proof-copy span{display:inline-block;color:#7ed2ff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}.proof-copy h3{font-size:24px;margin-bottom:7px}.proof-copy p{font-size:14px;color:#e5eef4}.process-cta{display:flex;flex-direction:column;justify-content:center;background:#fff;color:#183447;border-radius:14px;padding:30px}.process-cta .mini-title{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#0876bc}.process-cta h3{font-size:25px;line-height:1.25;margin:8px 0}.process-cta p{font-size:14px;color:#657681;margin-bottom:18px}.process-cta .cta-actions{display:flex;gap:10px;flex-wrap:wrap}.process-cta a{display:inline-flex;align-items:center;gap:8px;border-radius:24px;padding:11px 17px;background:#0876bc;color:#fff;font-size:13px;font-weight:800}.process-cta a.wa{background:#20a657}.trust-note{max-width:850px;margin:20px auto 0;text-align:center;color:#bdd0dc;font-size:12px}
 
 /* ===== CONTACT US ===== */
 .contact-section{background:#f6f8fa;padding:80px 0 90px}
@@ -252,7 +252,7 @@ footer{background:#e9ebeb}
 .outer-swiper-wrap{flex-direction:column}
 .gallery-item{width:260px;height:195px}
 .advantage-grid{grid-template-columns:1fr 1fr}
-.process-grid{grid-template-columns:1fr 1fr}.trust-strip .layout{grid-template-columns:1fr 1fr}.trust-point:nth-child(2){border-right:0}
+.process-grid{grid-template-columns:1fr 1fr}.process-proof{grid-template-columns:1fr}.trust-strip .layout{grid-template-columns:1fr 1fr}.trust-point:nth-child(2){border-right:0}
 .news-grid{grid-template-columns:1fr 1fr}
 .foot-item{width:30%;margin-bottom:30px}
 .foot-item.foot-contact{width:40%;flex:none}
@@ -269,7 +269,7 @@ footer{background:#e9ebeb}
 .thumbs-item{width:calc(50% - 8px)}
 .gallery-item{width:220px;height:165px}
 .advantage-grid{grid-template-columns:1fr}
-.process-grid{grid-template-columns:1fr}.trust-strip .layout{grid-template-columns:1fr}.trust-point{border-right:0;border-bottom:1px solid #e8edf1}.trust-point:last-child{border-bottom:0}
+.process-grid{grid-template-columns:1fr}.process-section{padding:50px 0}.process-section .section-title h2{font-size:30px}.proof-visual{min-height:360px}.process-cta{padding:24px}.trust-strip .layout{grid-template-columns:1fr}.trust-point{border-right:0;border-bottom:1px solid #e8edf1}.trust-point:last-child{border-bottom:0}
 .news-grid{grid-template-columns:1fr}
 .form-row{grid-template-columns:1fr}
 .foot-item{width:50%}
@@ -560,6 +560,10 @@ footer{background:#e9ebeb}
 <article class="process-card"><i class="fas fa-cogs"></i><h3>Confirm configuration</h3><p>Review the available engine, transmission, axle, cab and body options for the intended work.</p></article>
 <article class="process-card"><i class="fas fa-file-invoice-dollar"></i><h3>Quotation and review</h3><p>Receive a configuration-based quotation and confirm commercial and technical details.</p></article>
 <article class="process-card"><i class="fas fa-ship"></i><h3>Inspection and shipment</h3><p>Coordinate pre-shipment checking, export documents and logistics to the destination port.</p></article>
+</div>
+<div class="process-proof">
+<div class="proof-visual"><img src="images/gallery-user-5.jpg" alt="Overseas buyer discussing SHACMAN truck requirements" loading="lazy" decoding="async"><div class="proof-copy"><span>Buyer communication</span><h3>Discuss the job before choosing the truck</h3><p>We begin with your route, load, road conditions and destination requirements—not a one-size-fits-all recommendation.</p></div></div>
+<div class="process-cta"><div class="mini-title">Start your enquiry</div><h3>Tell us what the truck needs to do</h3><p>Send the destination country, application and quantity. We will use them to discuss a suitable configuration and quotation.</p><div class="cta-actions"><a href="#quick-quote"><i class="fas fa-file-alt"></i> Quick Quote</a><a class="wa" href="https://wa.me/8618591976330?text=Hello%2C%20I%20need%20help%20choosing%20a%20truck%20configuration." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div></div>
 </div>
 <p class="trust-note">Specifications, availability and delivery arrangements are confirmed for each order and destination market.</p>
 </div>
