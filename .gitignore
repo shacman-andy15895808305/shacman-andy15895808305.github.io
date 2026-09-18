@@ -4,6 +4,7 @@
 # 开发用一次性脚本
 *.py
 *.ps1
+!tools/seo-geo-maintenance.ps1
 
 # 本地备份与说明文件
 original_site.html
