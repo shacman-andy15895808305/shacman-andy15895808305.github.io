@@ -28,7 +28,12 @@ function Strip-Tags {
 
 function Normalize-Text {
   param([string]$Text)
-  return (($Text -replace "`r`n", "`n").TrimEnd())
+  return (($Text -replace "`r`n", "`n").TrimStart([char]0xFEFF).TrimEnd())
+}
+
+function Ordinal-Key {
+  param([string]$Text)
+  return [System.BitConverter]::ToString([System.Text.Encoding]::UTF8.GetBytes($Text))
 }
 
 function Page-Url {
@@ -51,10 +56,10 @@ function Build-Sitemap {
 
 function Build-Llms-Block {
   param($Pages)
-  $news = $Pages | Where-Object { $_.Name -like "news-*.html" } | Sort-Object Lastmod, Name -Descending | Select-Object -First 35
+  $news = $Pages | Where-Object { $_.Name -like "news-*.html" } | Sort-Object Lastmod, @{Expression={ Ordinal-Key $_.Name }} -Descending | Select-Object -First 35
   $products = $Pages | Where-Object {
     $_.Name -match "^(shacman|sagmoto)-" -and $_.Name -notmatch "-zh\.html$"
-  } | Sort-Object Name
+  } | Sort-Object @{Expression={ Ordinal-Key $_.Name }}
 
   $lines = New-Object System.Collections.Generic.List[string]
   $lines.Add("<!-- AUTO-SEO-GEO-START -->")
@@ -91,7 +96,7 @@ function Update-Llms {
 
 $htmlFiles = Get-ChildItem -LiteralPath $root -File -Filter "*.html" |
   Where-Object { $_.Name -notmatch "^google[a-z0-9]+\.html$" } |
-  Sort-Object Name
+  Sort-Object @{Expression={ Ordinal-Key $_.Name }}
 
 $pages = New-Object System.Collections.Generic.List[object]
 $warnings = New-Object System.Collections.Generic.List[string]
@@ -163,7 +168,7 @@ foreach ($file in $htmlFiles) {
   }
 }
 
-$pages = @($pages | Sort-Object @{Expression={ if ($_.Name -eq "index.html") { "0000" } else { $_.Name } }})
+$pages = @($pages | Sort-Object @{Expression={ if ($_.Name -eq "index.html") { "0000" } else { "0001-$(Ordinal-Key $_.Name)" } }})
 $sitemapNew = Build-Sitemap $pages
 $llmsNew = Update-Llms (Build-Llms-Block $pages)
 
@@ -181,7 +186,7 @@ if ($Write) {
 $reportDir = Join-Path $root "seo-reports"
 New-Item -ItemType Directory -Force -Path $reportDir | Out-Null
 $newUrlsPath = Join-Path $reportDir "gsc-urls-to-inspect.txt"
-$newNews = $pages | Where-Object { $_.Name -like "news-*.html" } | Sort-Object Lastmod, Name -Descending | Select-Object -First 30
+$newNews = $pages | Where-Object { $_.Name -like "news-*.html" } | Sort-Object Lastmod, @{Expression={ Ordinal-Key $_.Name }} -Descending | Select-Object -First 30
 $newUrls = (($newNews | ForEach-Object { $_.Url }) -join "`r`n") + "`r`n"
 $currentUrls = if (Test-Path $newUrlsPath) { Get-Content -LiteralPath $newUrlsPath -Raw -Encoding UTF8 } else { "" }
 if ($Write) {
