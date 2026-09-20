@@ -23,7 +23,7 @@ const auth = new GoogleAuth({
   credentials,
   scopes: ["https://www.googleapis.com/auth/webmasters"],
 });
-const client = await auth.getClient();
+let client;
 
 function apiUrl(base, ...parts) {
   return `${base}/${parts.map((part) => encodeURIComponent(part)).join("/")}`;
@@ -161,40 +161,56 @@ function buildMarkdown(report) {
   return lines.join("\n");
 }
 
-fs.mkdirSync(outputDir, { recursive: true });
+async function main() {
+  fs.mkdirSync(outputDir, { recursive: true });
+  client = await auth.getClient();
 
-const sitemap = await submitSitemap();
-const urls = [...new Set(readInspectionUrls())].slice(0, inspectionLimit);
-const inspections = [];
-for (const url of urls) {
-  try {
-    inspections.push(await inspectUrl(url));
-  } catch (error) {
-    inspections.push({
-      url,
-      verdict: "ERROR",
-      coverageState: error.response?.data?.error?.message || error.message,
-      lastCrawlTime: "",
-    });
+  const sitemap = await submitSitemap();
+  const urls = [...new Set(readInspectionUrls())].slice(0, inspectionLimit);
+  const inspections = [];
+  for (const url of urls) {
+    try {
+      inspections.push(await inspectUrl(url));
+    } catch (error) {
+      inspections.push({
+        url,
+        verdict: "ERROR",
+        coverageState: error.response?.data?.error?.message || error.message,
+        lastCrawlTime: "",
+      });
+    }
   }
+
+  const [totals, queries, pages, countries] = await Promise.all([
+    querySearchAnalytics([], 1),
+    querySearchAnalytics(["query"]),
+    querySearchAnalytics(["page"]),
+    querySearchAnalytics(["country"]),
+  ]);
+
+  const report = {
+    generatedAt: new Date().toISOString(),
+    siteUrl,
+    sitemap,
+    inspectedUrlCount: inspections.length,
+    inspections,
+    analytics: { totals, queries, pages, countries },
+  };
+
+  fs.writeFileSync(path.join(outputDir, "report.json"), `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(path.join(outputDir, "report.md"), buildMarkdown(report));
+  console.log(`GSC report created for ${siteUrl}: ${inspections.length} URLs inspected.`);
 }
 
-const [totals, queries, pages, countries] = await Promise.all([
-  querySearchAnalytics([], 1),
-  querySearchAnalytics(["query"]),
-  querySearchAnalytics(["page"]),
-  querySearchAnalytics(["country"]),
-]);
-
-const report = {
-  generatedAt: new Date().toISOString(),
-  siteUrl,
-  sitemap,
-  inspectedUrlCount: inspections.length,
-  inspections,
-  analytics: { totals, queries, pages, countries },
-};
-
-fs.writeFileSync(path.join(outputDir, "report.json"), `${JSON.stringify(report, null, 2)}\n`);
-fs.writeFileSync(path.join(outputDir, "report.md"), buildMarkdown(report));
-console.log(`GSC report created for ${siteUrl}: ${inspections.length} URLs inspected.`);
+main().catch((error) => {
+  const message = String(error.response?.data?.error?.message || error.message || error)
+    .replaceAll("\r", " ")
+    .replaceAll("\n", " ");
+  fs.mkdirSync(outputDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(outputDir, "report.md"),
+    `# GSC automation setup error\n\n${message}\n`
+  );
+  console.error(`::error title=GSC automation setup error::${message}`);
+  process.exitCode = 1;
+});

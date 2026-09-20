@@ -33,6 +33,15 @@ jobs:
       - name: Install Google authentication client
         run: npm install --no-save --no-package-lock google-auth-library@10
 
+      - name: Verify GSC secret is configured
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error title=Missing GitHub Secret::Add the service account JSON as repository secret GSC_SERVICE_ACCOUNT_JSON."
+            exit 1
+          fi
+
       - name: Submit sitemap and build GSC report
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
