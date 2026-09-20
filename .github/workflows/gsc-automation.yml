@@ -1,0 +1,50 @@
+name: GSC Automation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "45 2 * * *"
+  workflow_run:
+    workflows:
+      - pages build and deployment
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+jobs:
+  monitor:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Google authentication client
+        run: npm install --no-save --no-package-lock google-auth-library@10
+
+      - name: Submit sitemap and build GSC report
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: https://shacmantruck-export.com/
+          GSC_INSPECTION_LIMIT: "30"
+        run: node tools/gsc-automation.mjs
+
+      - name: Add report to workflow summary
+        if: always() && hashFiles('gsc-output/report.md') != ''
+        run: cat gsc-output/report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload GSC report
+        if: always() && hashFiles('gsc-output/**') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: shacman-gsc-report-${{ github.run_number }}
+          path: gsc-output/
+          retention-days: 30
