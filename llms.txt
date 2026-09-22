@@ -85,8 +85,8 @@ Proof materials available during enquiries: vehicle inspection photos, loading p
 
 <!-- AUTO-SEO-GEO-START -->
 ## Auto SEO/GEO index
-Generated: 2026-09-21
-Indexable HTML pages: 118
+Generated: 2026-09-22
+Indexable HTML pages: 119
 
 ### Priority product and quotation pages
 - SAGMOTO X1s 6x4 Dump Truck for Sale | Export Quote: https://shacmantruck-export.com/sagmoto-x1s-6x4-dump-truck.html
@@ -107,6 +107,7 @@ Indexable HTML pages: 118
 - Contact Andy, Sales Manager: https://shacmantruck-export.com/contact-us.html
 
 ### Recent truck export news and buying guides
+- SHACMAN F3000 8x4 30m3 Fuel Truck for DRC | Specs: https://shacmantruck-export.com/news-shacman-f3000-8x4-30m3-fuel-truck-drc.html
 - SHACMAN X3000 6x6 Tractor Truck | Rough-Road Guide: https://shacmantruck-export.com/news-shacman-x3000-6x6-tractor-truck-rough-road-guide.html
 - SHACMAN X5000 6x4 Low-Roof Tractor | Buyer Guide: https://shacmantruck-export.com/news-shacman-x5000-6x4-low-roof-tractor-construction-haulage.html
 - SHACMAN X9 Cargo Truck Kenya | Urban Delivery Buyer Guide: https://shacmantruck-export.com/news-shacman-x9-cargo-truck-kenya-urban-delivery.html
@@ -141,5 +142,4 @@ Indexable HTML pages: 118
 - SAGMOTO X1S 8x4 Dump Truck Dominican Republic | Buying Guide: https://shacmantruck-export.com/news-sagmoto-x1s-8x4-dump-truck-dominican-republic-heavy-construction.html
 - SAGMOTO X1S 6x4 Dump Truck Colombia | Contractor Guide: https://shacmantruck-export.com/news-sagmoto-x1s-6x4-dump-truck-colombia-contractors.html
 - SHACMAN X5000 Tractor Truck Kyrgyzstan | Mountain Logistics Guide: https://shacmantruck-export.com/news-shacman-x5000-tractor-truck-kyrgyzstan-mountain-logistics.html
-- SHACMAN X3000 Bulk Cement Truck Mozambique | Cement Logistics Guide: https://shacmantruck-export.com/news-shacman-x3000-bulk-cement-truck-mozambique-cement-logistics.html
 <!-- AUTO-SEO-GEO-END -->
