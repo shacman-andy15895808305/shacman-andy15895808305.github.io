@@ -186,8 +186,21 @@ if ($Write) {
 $reportDir = Join-Path $root "seo-reports"
 New-Item -ItemType Directory -Force -Path $reportDir | Out-Null
 $newUrlsPath = Join-Path $reportDir "gsc-urls-to-inspect.txt"
-$newNews = $pages | Where-Object { $_.Name -like "news-*.html" } | Sort-Object Lastmod, @{Expression={ Ordinal-Key $_.Name }} -Descending | Select-Object -First 30
-$newUrls = (($newNews | ForEach-Object { $_.Url }) -join "`r`n") + "`r`n"
+$priorityNames = @(
+  "index.html",
+  "shacman-tractor-trucks.html",
+  "shacman-x6000-4x2-tractor-truck.html",
+  "x6000.html",
+  "shacman-dump-trucks.html",
+  "shacman-concrete-mixer-truck.html",
+  "shacman-cargo-truck.html",
+  "shacman-fuel-tanker-truck.html"
+)
+$priorityPages = $pages | Where-Object { $priorityNames -contains $_.Name } | Sort-Object @{Expression={ [array]::IndexOf($priorityNames, $_.Name) }}
+$newsSlots = [Math]::Max(0, 30 - $priorityPages.Count)
+$newNews = $pages | Where-Object { $_.Name -like "news-*.html" } | Sort-Object Lastmod, @{Expression={ Ordinal-Key $_.Name }} -Descending | Select-Object -First $newsSlots
+$inspectionPages = @($priorityPages) + @($newNews)
+$newUrls = (($inspectionPages | ForEach-Object { $_.Url }) -join "`r`n") + "`r`n"
 $currentUrls = if (Test-Path $newUrlsPath) { Get-Content -LiteralPath $newUrlsPath -Raw -Encoding UTF8 } else { "" }
 if ($Write) {
   Set-Content -LiteralPath $newUrlsPath -Value $newUrls -Encoding utf8 -NoNewline

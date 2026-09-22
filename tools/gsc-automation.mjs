@@ -62,14 +62,14 @@ function isoDate(daysAgo) {
   return date.toISOString().slice(0, 10);
 }
 
-async function querySearchAnalytics(dimensions = [], rowLimit = 25) {
+async function querySearchAnalytics(dimensions = [], rowLimit = 25, startDaysAgo = 30, endDaysAgo = 3) {
   const url = apiUrl("https://www.googleapis.com/webmasters/v3/sites", siteUrl, "searchAnalytics", "query");
   const response = await client.request({
     url,
     method: "POST",
     data: {
-      startDate: isoDate(30),
-      endDate: isoDate(3),
+      startDate: isoDate(startDaysAgo),
+      endDate: isoDate(endDaysAgo),
       dimensions,
       rowLimit,
       dataState: "final",
@@ -109,8 +109,27 @@ function analyticsTable(rows, label) {
   return lines.join("\n");
 }
 
+function changeLine(label, current, previous, formatter = (value) => formatNumber(value)) {
+  const difference = Number(current || 0) - Number(previous || 0);
+  const sign = difference > 0 ? "+" : "";
+  return `- ${label}: ${formatter(current)} (${sign}${formatter(difference)} vs previous period)`;
+}
+
+function rankingOpportunities(rows) {
+  return rows
+    .filter((row) => Number(row.impressions || 0) > 0 && Number(row.position || 0) >= 4 && Number(row.position || 0) <= 20)
+    .sort((a, b) => Number(b.impressions || 0) - Number(a.impressions || 0));
+}
+
+function lowClickPages(rows) {
+  return rows
+    .filter((row) => Number(row.impressions || 0) > 0 && Number(row.ctr || 0) < 0.03)
+    .sort((a, b) => Number(b.impressions || 0) - Number(a.impressions || 0));
+}
+
 function buildMarkdown(report) {
   const totals = report.analytics.totals[0] || {};
+  const previousTotals = report.analytics.previousTotals[0] || {};
   const indexed = report.inspections.filter((item) => item.verdict === "PASS").length;
   const needsAttention = report.inspections.length - indexed;
   const lines = [
@@ -126,6 +145,13 @@ function buildMarkdown(report) {
     `- Impressions: ${formatNumber(totals.impressions)}`,
     `- CTR: ${formatNumber((totals.ctr || 0) * 100, 1)}%`,
     `- Average position: ${formatNumber(totals.position, 1)}`,
+    "",
+    "## Change versus previous 28-day period",
+    "",
+    changeLine("Clicks", totals.clicks, previousTotals.clicks),
+    changeLine("Impressions", totals.impressions, previousTotals.impressions),
+    changeLine("CTR", (totals.ctr || 0) * 100, (previousTotals.ctr || 0) * 100, (value) => `${formatNumber(value, 1)}%`),
+    changeLine("Average position", totals.position, previousTotals.position, (value) => formatNumber(value, 1)),
     "",
     "## Priority URL inspection",
     "",
@@ -155,6 +181,16 @@ function buildMarkdown(report) {
     "",
     analyticsTable(report.analytics.countries, "Country"),
     "",
+    "## Ranking growth opportunities",
+    "",
+    "Queries already ranking in positions 4-20 are the first candidates for title, content, internal-link and CTR improvements.",
+    "",
+    analyticsTable(report.analytics.queryOpportunities, "Query"),
+    "",
+    "## Pages receiving impressions with CTR below 3%",
+    "",
+    analyticsTable(report.analytics.lowClickPages, "Page"),
+    "",
     "> Note: The URL Inspection API reports Google's indexed version. It cannot run a live test or automatically request indexing for normal product and News pages.",
     ""
   );
@@ -181,11 +217,12 @@ async function main() {
     }
   }
 
-  const [totals, queries, pages, countries] = await Promise.all([
+  const [totals, previousTotals, queries, pages, countries] = await Promise.all([
     querySearchAnalytics([], 1),
-    querySearchAnalytics(["query"]),
-    querySearchAnalytics(["page"]),
-    querySearchAnalytics(["country"]),
+    querySearchAnalytics([], 1, 58, 31),
+    querySearchAnalytics(["query"], 100),
+    querySearchAnalytics(["page"], 100),
+    querySearchAnalytics(["country"], 50),
   ]);
 
   const report = {
@@ -194,7 +231,15 @@ async function main() {
     sitemap,
     inspectedUrlCount: inspections.length,
     inspections,
-    analytics: { totals, queries, pages, countries },
+    analytics: {
+      totals,
+      previousTotals,
+      queries,
+      pages,
+      countries,
+      queryOpportunities: rankingOpportunities(queries),
+      lowClickPages: lowClickPages(pages),
+    },
   };
 
   fs.writeFileSync(path.join(outputDir, "report.json"), `${JSON.stringify(report, null, 2)}\n`);
