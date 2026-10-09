@@ -55,7 +55,7 @@ function Build-Sitemap {
 }
 
 function Build-Llms-Block {
-  param($Pages)
+  param($Pages, [string]$GeneratedDate = $today)
   $news = $Pages | Where-Object { $_.Name -like "news-*.html" } | Sort-Object Lastmod, @{Expression={ Ordinal-Key $_.Name }} -Descending | Select-Object -First 35
   $products = $Pages | Where-Object {
     $_.Name -match "^(shacman|sagmoto)-" -and $_.Name -notmatch "-zh\.html$"
@@ -64,7 +64,7 @@ function Build-Llms-Block {
   $lines = New-Object System.Collections.Generic.List[string]
   $lines.Add("<!-- AUTO-SEO-GEO-START -->")
   $lines.Add("## Auto SEO/GEO index")
-  $lines.Add("Generated: $today")
+  $lines.Add("Generated: $GeneratedDate")
   $lines.Add("Indexable HTML pages: $($Pages.Count)")
   $lines.Add("")
   $lines.Add("### Priority product and quotation pages")
@@ -170,10 +170,16 @@ foreach ($file in $htmlFiles) {
 
 $pages = @($pages | Sort-Object @{Expression={ if ($_.Name -eq "index.html") { "0000" } else { "0001-$(Ordinal-Key $_.Name)" } }})
 $sitemapNew = Build-Sitemap $pages
-$llmsNew = Update-Llms (Build-Llms-Block $pages)
 
 $llmsPath = Join-Path $root "llms.txt"
 $llmsCurrent = if (Test-Path $llmsPath) { Get-Content -LiteralPath $llmsPath -Raw -Encoding UTF8 } else { "" }
+$llmsGeneratedDate = $today
+if (-not $Write) {
+  # Validation must compare index content without changing its generation date.
+  $existingGeneratedDate = Match-One $llmsCurrent '(?s)<!-- AUTO-SEO-GEO-START -->\s*## Auto SEO/GEO index\s*Generated: (\d{4}-\d{2}-\d{2})\r?\n'
+  if ($existingGeneratedDate) { $llmsGeneratedDate = $existingGeneratedDate }
+}
+$llmsNew = Update-Llms (Build-Llms-Block $pages $llmsGeneratedDate)
 
 if ($Write) {
   Set-Content -LiteralPath $sitemapPath -Value $sitemapNew -Encoding utf8 -NoNewline
