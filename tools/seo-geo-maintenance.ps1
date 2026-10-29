@@ -198,6 +198,7 @@ $priorityNames = @(
   "shacman-x6000-4x2-tractor-truck.html",
   "x6000.html",
   "x5000.html",
+  "x9.html",
   "shacman-dump-trucks.html",
   "shacman-concrete-mixer-truck.html",
   "shacman-cargo-truck.html",

@@ -19,6 +19,7 @@ Proof materials available during enquiries: vehicle inspection photos, loading p
 - SHACMAN fuel tanker truck: https://shacmantruck-export.com/shacman-fuel-tanker-truck.html
 - SHACMAN bulk cement truck: https://shacmantruck-export.com/shacman-bulk-cement-truck.html
 - SHACMAN cargo truck: https://shacmantruck-export.com/shacman-cargo-truck.html
+- SAGMOTO X9 4x2 cargo reference and separate X9s dump application: https://shacmantruck-export.com/x9.html
 - SHACMAN truck chassis: https://shacmantruck-export.com/shacman-truck-chassis.html
 - F3000 6x4 dump truck: https://shacmantruck-export.com/shacman-f3000-6x4-dump-truck.html
 - X3000 6x4 tractor truck: https://shacmantruck-export.com/shacman-x3000-6x4-tractor-truck.html
@@ -85,7 +86,7 @@ Proof materials available during enquiries: vehicle inspection photos, loading p
 
 <!-- AUTO-SEO-GEO-START -->
 ## Auto SEO/GEO index
-Generated: 2026-10-17
+Generated: 2026-10-29
 Indexable HTML pages: 126
 
 ### Priority product and quotation pages
