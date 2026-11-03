@@ -182,8 +182,9 @@ if (-not $Write) {
 $llmsNew = Update-Llms (Build-Llms-Block $pages $llmsGeneratedDate)
 
 if ($Write) {
-  Set-Content -LiteralPath $sitemapPath -Value $sitemapNew -Encoding utf8 -NoNewline
-  Set-Content -LiteralPath $llmsPath -Value $llmsNew -Encoding utf8 -NoNewline
+  $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+  [System.IO.File]::WriteAllText($sitemapPath, $sitemapNew, $utf8NoBom)
+  [System.IO.File]::WriteAllText($llmsPath, $llmsNew, $utf8NoBom)
 } else {
   if ((Normalize-Text $sitemapCurrent) -ne (Normalize-Text $sitemapNew)) { $errors.Add("sitemap.xml is not synchronized. Run tools/seo-geo-maintenance.ps1 -Write.") }
   if ((Normalize-Text $llmsCurrent) -ne (Normalize-Text $llmsNew)) { $errors.Add("llms.txt is not synchronized. Run tools/seo-geo-maintenance.ps1 -Write.") }
@@ -202,16 +203,19 @@ $priorityNames = @(
   "shacman-dump-trucks.html",
   "shacman-concrete-mixer-truck.html",
   "shacman-cargo-truck.html",
-  "shacman-fuel-tanker-truck.html"
+  "shacman-fuel-tanker-truck.html",
+  "news-shacman-maintenance-parts-africa-fleet-checklist.html",
+  "news-shacman-truck-loading-shipping-photos-export-proof.html"
 )
 $priorityPages = $pages | Where-Object { $priorityNames -contains $_.Name } | Sort-Object @{Expression={ [array]::IndexOf($priorityNames, $_.Name) }}
 $newsSlots = [Math]::Max(0, 30 - $priorityPages.Count)
-$newNews = $pages | Where-Object { $_.Name -like "news-*.html" } | Sort-Object Lastmod, @{Expression={ Ordinal-Key $_.Name }} -Descending | Select-Object -First $newsSlots
+$newNews = $pages | Where-Object { $_.Name -like "news-*.html" -and $priorityNames -notcontains $_.Name } | Sort-Object Lastmod, @{Expression={ Ordinal-Key $_.Name }} -Descending | Select-Object -First $newsSlots
 $inspectionPages = @($priorityPages) + @($newNews)
 $newUrls = (($inspectionPages | ForEach-Object { $_.Url }) -join "`r`n") + "`r`n"
 $currentUrls = if (Test-Path $newUrlsPath) { Get-Content -LiteralPath $newUrlsPath -Raw -Encoding UTF8 } else { "" }
 if ($Write) {
-  Set-Content -LiteralPath $newUrlsPath -Value $newUrls -Encoding utf8 -NoNewline
+  $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+  [System.IO.File]::WriteAllText($newUrlsPath, $newUrls, $utf8NoBom)
 } elseif ((Normalize-Text $currentUrls) -ne (Normalize-Text $newUrls)) {
   $errors.Add("seo-reports/gsc-urls-to-inspect.txt is not synchronized. Run tools/seo-geo-maintenance.ps1 -Write.")
 }
