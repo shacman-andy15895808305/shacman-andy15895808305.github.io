@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://shacmantruck-export.com/sitemap.xml
+
+# Machine-readable business profile for AI-assisted research and citations
+# https://shacmantruck-export.com/llms.txt
